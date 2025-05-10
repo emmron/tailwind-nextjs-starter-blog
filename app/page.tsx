@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import { awardWinners } from '@/data/awardsWinners'
 import AwardsClient from '@/components/AwardsClient'
+import AwardsLeaderboard from '@/components/AwardsLeaderboard'
 
 export default function HomePage() {
   // Get unique years for display - ensure we get ALL years
@@ -308,323 +309,37 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Leaderboards Section */}
-      <div className="grid grid-cols-1 gap-8 py-8 md:grid-cols-2">
-        {/* Top Companies */}
-        <div className="transform rounded-xl border border-gray-200 bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:border-gray-700 dark:bg-gray-900">
-          <div className="mb-6 flex items-center">
-            <div className="mr-3 rounded-full bg-blue-100 p-2 dark:bg-blue-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-blue-600 dark:text-blue-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
-              Top Winning Companies
-            </h2>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/40">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Rank
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Company
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Total Awards
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      1st Places
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Years Active
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {companyStats.map(({ company, wins, firstPlaces, yearSpan }, index) => (
-                    <tr
-                      key={company}
-                      className={`${
-                        index % 2 === 0
-                          ? 'bg-white dark:bg-gray-800'
-                          : 'bg-blue-50/30 dark:bg-blue-900/10'
-                      } group transition-colors duration-150 hover:bg-blue-100 dark:hover:bg-blue-800/30`}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        {index < 3 ? (
-                          <span
-                            className={`inline-flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${
-                              index === 0
-                                ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 ring-4 ring-yellow-200 dark:ring-yellow-800/50'
-                                : index === 1
-                                  ? 'bg-gradient-to-r from-gray-300 to-gray-500 ring-4 ring-gray-200 dark:ring-gray-700/50'
-                                  : 'bg-gradient-to-r from-amber-500 to-amber-700 ring-4 ring-amber-200 dark:ring-amber-800/50'
-                            } transform shadow-md transition-transform duration-200 group-hover:scale-110`}
-                          >
-                            {index === 0 ? (
-                              <span className="flex items-center justify-center">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                  />
-                                </svg>
-                              </span>
-                            ) : (
-                              index + 1
-                            )}
-                          </span>
-                        ) : (
-                          <span className="pl-4 font-medium text-gray-900 dark:text-white">
-                            #{index + 1}
-                          </span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-bold text-gray-900 transition-colors duration-150 group-hover:text-blue-700 dark:text-white dark:group-hover:text-blue-300">
-                          {company}
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          {wins} awards across {yearSpan}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="rounded-full bg-green-100 px-3 py-2 text-sm font-semibold text-green-800 shadow-sm transition-all duration-150 group-hover:bg-green-200 group-hover:shadow dark:bg-green-800/70 dark:text-green-100 dark:group-hover:bg-green-700">
-                          {wins}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100 px-3 py-2 text-sm font-semibold text-yellow-800 shadow-sm transition-all duration-150 group-hover:bg-yellow-200 group-hover:shadow dark:bg-yellow-800/70 dark:text-yellow-100 dark:group-hover:bg-yellow-700">
-                          <div className="relative">
-                            <span className="absolute -top-1 -right-1">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-4 text-yellow-600 dark:text-yellow-400"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                                />
-                              </svg>
-                            </span>
-                            {firstPlaces}
-                          </div>
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="rounded-md bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 transition-colors duration-150 group-hover:bg-indigo-100 dark:bg-indigo-900/40 dark:text-indigo-300 dark:group-hover:bg-indigo-800/50">
-                          {yearSpan}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* Top Agencies */}
-        <div className="transform rounded-xl border border-gray-200 bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:border-gray-700 dark:bg-gray-900">
-          <div className="mb-6 flex items-center">
-            <div className="mr-3 rounded-full bg-purple-100 p-2 dark:bg-purple-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-purple-600 dark:text-purple-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
-              Top Agencies
-            </h2>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/40 dark:to-indigo-900/40">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Rank
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Agency
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Total Awards
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      1st Places
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300">
-                      Years Active
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {agencyStats.map(({ agency, wins, firstPlaces, yearSpan }, index) => (
-                    <tr
-                      key={agency}
-                      className={`${
-                        index % 2 === 0
-                          ? 'bg-white dark:bg-gray-800'
-                          : 'bg-purple-50/30 dark:bg-purple-900/10'
-                      } group transition-colors duration-150 hover:bg-purple-100 dark:hover:bg-purple-800/30`}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        {index < 3 ? (
-                          <span
-                            className={`inline-flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${
-                              index === 0
-                                ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 ring-4 ring-yellow-200 dark:ring-yellow-800/50'
-                                : index === 1
-                                  ? 'bg-gradient-to-r from-gray-300 to-gray-500 ring-4 ring-gray-200 dark:ring-gray-700/50'
-                                  : 'bg-gradient-to-r from-amber-500 to-amber-700 ring-4 ring-amber-200 dark:ring-amber-800/50'
-                            } transform shadow-md transition-transform duration-200 group-hover:scale-110`}
-                          >
-                            {index === 0 ? (
-                              <span className="flex items-center justify-center">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="h-5 w-5"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                  />
-                                </svg>
-                              </span>
-                            ) : (
-                              index + 1
-                            )}
-                          </span>
-                        ) : (
-                          <span className="pl-4 font-medium text-gray-900 dark:text-white">
-                            #{index + 1}
-                          </span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-bold text-gray-900 transition-colors duration-150 group-hover:text-purple-700 dark:text-white dark:group-hover:text-purple-300">
-                          {agency}
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          {wins} awards across {yearSpan}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="rounded-full bg-blue-100 px-3 py-2 text-sm font-semibold text-blue-800 shadow-sm transition-all duration-150 group-hover:bg-blue-200 group-hover:shadow dark:bg-blue-800/70 dark:text-blue-100 dark:group-hover:bg-blue-700">
-                          {wins}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100 px-3 py-2 text-sm font-semibold text-yellow-800 shadow-sm transition-all duration-150 group-hover:bg-yellow-200 group-hover:shadow dark:bg-yellow-800/70 dark:text-yellow-100 dark:group-hover:bg-yellow-700">
-                          <div className="relative">
-                            <span className="absolute -top-1 -right-1">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-4 text-yellow-600 dark:text-yellow-400"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                                />
-                              </svg>
-                            </span>
-                            {firstPlaces}
-                          </div>
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="rounded-md bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 transition-colors duration-150 group-hover:bg-indigo-100 dark:bg-indigo-900/40 dark:text-indigo-300 dark:group-hover:bg-indigo-800/50">
-                          {yearSpan}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Awards List with Category Filter */}
-      <div className="awards-section py-8">
-        <div className="mb-6 rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg dark:border-gray-700 dark:from-gray-900 dark:to-blue-900">
-          <div className="mb-4 flex items-center">
-            <div className="mr-3 rounded-full bg-indigo-100 p-2 dark:bg-indigo-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-indigo-600 dark:text-indigo-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
-              Browse Award Winners
-            </h2>
-          </div>
-          <p className="mb-2 ml-11 text-gray-600 dark:text-gray-300">
-            Filter and explore all Australian Web Award winners throughout the years.
+      {/* Leaderboard Section */}
+      <section id="leaderboard" className="mb-10">
+        <div className="mb-6">
+          <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Performance Leaders
+            </span>
+          </h2>
+          <p className="mt-2 text-center text-gray-600 dark:text-gray-400">
+            See who's made the biggest impact in the Australian Web Awards history
           </p>
         </div>
+
+        <AwardsLeaderboard awardWinners={awardWinners} />
+      </section>
+
+      {/* Awards Browser Section */}
+      <section id="awards-browser" className="mb-10">
+        <div className="mb-6">
+          <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Browse All Awards
+            </span>
+          </h2>
+          <p className="mt-2 text-center text-gray-600 dark:text-gray-400">
+            Explore the complete history of Australian Web Awards winners
+          </p>
+        </div>
+
         <AwardsClient years={years} categories={categories} awardWinners={awardWinners} />
-      </div>
+      </section>
 
       <div className="mt-10 border-t border-gray-200 py-8 dark:border-gray-800">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
