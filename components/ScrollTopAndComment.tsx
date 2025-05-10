@@ -2,13 +2,15 @@
 
 import siteMetadata from '@/data/siteMetadata'
 import { useEffect, useState } from 'react'
+import smoothscroll from 'smoothscroll-polyfill'
 
 const ScrollTopAndComment = () => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
+    smoothscroll.polyfill()
     const handleWindowScroll = () => {
-      if (window.scrollY > 50) setShow(true)
+      if (window.scrollY > 300) setShow(true)
       else setShow(false)
     }
 
@@ -17,20 +19,27 @@ const ScrollTopAndComment = () => {
   }, [])
 
   const handleScrollTop = () => {
-    window.scrollTo({ top: 0 })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
   const handleScrollToComment = () => {
-    document.getElementById('comment')?.scrollIntoView()
+    const comment = document.getElementById('comment')
+    if (comment) {
+      comment.scrollIntoView({ behavior: 'smooth' })
+    }
   }
+
   return (
     <div
-      className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
+      className={`fixed right-8 bottom-8 flex flex-col gap-3 ${
+        show ? 'opacity-100' : 'opacity-0'
+      } transition-opacity duration-300`}
     >
       {siteMetadata.comments?.provider && (
         <button
-          aria-label="Scroll To Comment"
+          aria-label="Scroll To Comments"
           onClick={handleScrollToComment}
-          className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+          className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 hover:text-gray-700 hover:shadow-lg dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-gray-300"
         >
           <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -44,7 +53,7 @@ const ScrollTopAndComment = () => {
       <button
         aria-label="Scroll To Top"
         onClick={handleScrollTop}
-        className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
+        className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 hover:text-gray-700 hover:shadow-lg dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-gray-300"
       >
         <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path

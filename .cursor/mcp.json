@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {
+        "PUPPETEER_LAUNCH_OPTIONS": "{ \"headless\": false, \"executablePath\": \"C:/Program Files/Google/Chrome/Application/chrome.exe\", \"args\": [] }",
+        "ALLOW_DANGEROUS": "true"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    }
+  },
+  "browserDevTools": {
+    "enabled": true,
+    "port": 9229,
+    "host": "127.0.0.1",
+    "breakOnStart": false,
+    "waitForDebugger": false
+  }
+}
