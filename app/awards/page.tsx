@@ -112,7 +112,7 @@ export default function AwardsPage() {
     <div>
       {/* Hero Section with Background Pattern */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-80 dark:from-gray-900 dark:to-blue-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-indigo-100 opacity-80 dark:from-gray-900 dark:to-blue-900"></div>
         <div
           className="absolute inset-0"
           style={{
@@ -123,19 +123,19 @@ export default function AwardsPage() {
 
         <div className="relative space-y-6 px-4 pt-10 pb-12 sm:px-6 md:space-y-8 lg:px-8">
           <div className="space-y-2 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
+            <h1 className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent drop-shadow-sm sm:text-5xl md:text-6xl dark:from-blue-300 dark:to-indigo-400">
               <span className="inline-block transform transition-transform duration-300 hover:scale-105">
                 Australian Web Awards
               </span>
             </h1>
-            <div className="mx-auto my-4 h-1.5 w-40 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
+            <div className="mx-auto my-4 h-2 w-48 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 shadow-md"></div>
+            <p className="mx-auto max-w-2xl text-xl text-gray-700 dark:text-gray-200">
               Celebrating digital excellence in Australian web design since 2005
             </p>
           </div>
 
           <div className="flex justify-center space-x-4">
-            <div className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white shadow-md">
+            <div className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white shadow-lg transition-transform hover:scale-105">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="mr-2 h-5 w-5"
@@ -152,7 +152,7 @@ export default function AwardsPage() {
               </svg>
               <span>{years.length} years of excellence</span>
             </div>
-            <div className="inline-flex items-center rounded-lg bg-indigo-600 px-4 py-2 text-white shadow-md">
+            <div className="inline-flex items-center rounded-lg bg-indigo-600 px-4 py-2 text-white shadow-lg transition-transform hover:scale-105">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="mr-2 h-5 w-5"
@@ -175,12 +175,12 @@ export default function AwardsPage() {
 
       <div className="stats mb-10">
         <div className="mb-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-white to-blue-50 p-5 shadow-md transition-transform hover:scale-105 dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
+          <div className="rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-blue-200 p-5 shadow-lg transition-transform hover:scale-105 dark:border-blue-900 dark:from-gray-800 dark:to-blue-900">
             <div className="mb-2 flex items-center">
-              <div className="mr-3 rounded-full bg-blue-100 p-2 dark:bg-blue-900">
+              <div className="mr-3 rounded-full bg-blue-600 p-2 shadow-md dark:bg-blue-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-blue-600 dark:text-blue-300"
+                  className="h-5 w-5 text-white dark:text-blue-200"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -193,14 +193,14 @@ export default function AwardsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              <h3 className="text-md font-semibold text-blue-900 dark:text-blue-300">
                 Total Winners
               </h3>
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            <p className="text-3xl font-extrabold text-blue-800 drop-shadow-sm dark:text-blue-200">
               {stats.totalWinners}
             </p>
-            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+            <p className="mt-1 text-xs text-blue-700 dark:text-blue-400">
               Entries across all years
             </p>
           </div>
@@ -292,8 +292,24 @@ export default function AwardsPage() {
         </div>
 
         {/* Year Navigation */}
-        <div className="mb-6 rounded-xl border border-gray-200 bg-white p-4 py-4 shadow-md dark:border-gray-700 dark:bg-gray-900">
-          <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-gray-100">Jump to Year:</h3>
+        <div className="mb-8">
+          <h2 className="mb-6 flex items-center border-l-4 border-blue-600 pl-4 text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mr-3 h-8 w-8 text-blue-600 dark:text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            Explore by Year
+          </h2>
           <div className="flex flex-wrap gap-2">
             {years.map((year) => (
               <a
