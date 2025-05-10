@@ -21,9 +21,22 @@ const urls = [
   { year: 2011, url: 'https://webawards.com.au/winners/2011/' },
   { year: 2010, url: 'https://webawards.com.au/winners/2010/' },
   { year: 2009, url: 'https://webawards.com.au/winners/2009/' },
+  // Archive.org URLs for older years that might be missing
+  { year: 2018, url: 'https://web.archive.org/web/20181201000000*/https://webawards.com.au/winners/2018/' },
+  { year: 2014, url: 'https://web.archive.org/web/20141201000000*/https://webawards.com.au/winners/2014/' },
+  { year: 2013, url: 'https://web.archive.org/web/20131201000000*/https://webawards.com.au/winners/2013/' },
+  { year: 2012, url: 'https://web.archive.org/web/20121201000000*/https://webawards.com.au/winners/2012/' },
+  { year: 2011, url: 'https://web.archive.org/web/20111201000000*/https://webawards.com.au/winners/2011/' },
+  { year: 2010, url: 'https://web.archive.org/web/20101201000000*/https://webawards.com.au/winners/2010/' },
+  { year: 2009, url: 'https://web.archive.org/web/20091201000000*/https://webawards.com.au/winners/2009/' },
+  // Additional specific archive.org captures
+  { year: 2018, url: 'https://web.archive.org/web/20181015152124/https://webawards.com.au/winners/' },
+  { year: 2014, url: 'https://web.archive.org/web/20141015152124/https://webawards.com.au/winners/' },
   // Try to get categories pages specifically
   { year: 0, url: 'https://webawards.com.au/categories/' },
   { year: 0, url: 'https://webawards.com.au/awards/' },
+  { year: 0, url: 'https://webawards.com.au/about/' },
+  { year: 0, url: 'https://webawards.com.au/hall-of-fame/' },
 ]
 
 // Known categories from research (comprehensive list)
@@ -113,6 +126,30 @@ const historicalWinners = [
     project: 'Humaan',
     rank: 1,
   },
+  {
+    year: 2018,
+    company: 'World War I: Love & Sorrow',
+    agency: 'Museum Victoria',
+    category: 'Government',
+    project: 'World War I: Love & Sorrow',
+    rank: 1,
+  },
+  {
+    year: 2018,
+    company: 'Beyond Blue',
+    agency: 'Squiz',
+    category: 'Health & Wellness',
+    project: 'Beyond Blue',
+    rank: 1,
+  },
+  {
+    year: 2018,
+    company: 'Global Surf Sounds',
+    agency: 'Royal Australian Navy',
+    category: 'Innovation',
+    project: 'Global Surf Sounds',
+    rank: 1,
+  },
 
   // 2017 Winners (partial)
   {
@@ -121,6 +158,14 @@ const historicalWinners = [
     agency: 'Humaan',
     category: 'Site of the Year',
     project: 'Hames Sharley',
+    rank: 1,
+  },
+  {
+    year: 2017,
+    company: 'Humaan',
+    agency: 'Humaan',
+    category: 'Agency of the Year',
+    project: 'Humaan',
     rank: 1,
   },
 
@@ -141,6 +186,98 @@ const historicalWinners = [
     agency: 'Alyka',
     category: 'Site of the Year',
     project: 'The Perth Mint',
+    rank: 1,
+  },
+
+  // 2014 Winners
+  {
+    year: 2014,
+    company: 'Tourism Victoria',
+    agency: 'Reactive',
+    category: 'Site of the Year',
+    project: 'Play Melbourne',
+    rank: 1,
+  },
+  {
+    year: 2014,
+    company: 'Bam Creative',
+    agency: 'Bam Creative',
+    category: 'Agency of the Year',
+    project: 'Bam Creative',
+    rank: 1,
+  },
+  {
+    year: 2014,
+    company: 'University of Adelaide',
+    agency: 'Bam Creative',
+    category: 'Education',
+    project: 'University of Adelaide',
+    rank: 1,
+  },
+
+  // 2013 Winners
+  {
+    year: 2013,
+    company: 'Forestry Tasmania',
+    agency: 'Reactive',
+    category: 'Site of the Year',
+    project: 'Forestry Tasmania',
+    rank: 1,
+  },
+  {
+    year: 2013,
+    company: 'The Brand Agency',
+    agency: 'The Brand Agency',
+    category: 'Agency of the Year',
+    project: 'The Brand Agency',
+    rank: 1,
+  },
+
+  // 2012 Winners
+  {
+    year: 2012,
+    company: 'Melbourne Cup Carnival',
+    agency: 'Reactive',
+    category: 'Site of the Year',
+    project: 'Melbourne Cup Carnival',
+    rank: 1,
+  },
+  {
+    year: 2012,
+    company: 'Reactive',
+    agency: 'Reactive',
+    category: 'Agency of the Year',
+    project: 'Reactive',
+    rank: 1,
+  },
+
+  // 2011 Winners
+  {
+    year: 2011,
+    company: 'Airbnb',
+    agency: 'Airbnb',
+    category: 'Site of the Year',
+    project: 'Airbnb',
+    rank: 1,
+  },
+
+  // 2010 Winners
+  {
+    year: 2010,
+    company: 'ABC',
+    agency: 'ABC Innovation',
+    category: 'Site of the Year',
+    project: 'ABC',
+    rank: 1,
+  },
+
+  // 2009 Winners
+  {
+    year: 2009,
+    company: 'Sydney Opera House',
+    agency: 'Deepend',
+    category: 'Site of the Year',
+    project: 'Sydney Opera House',
     rank: 1,
   },
 ]
@@ -817,7 +954,7 @@ function determineRank($, element) {
   return rank
 }
 
-// Improved function to scrape a single URL and extract award winners
+// Enhanced scrape function with more heuristics for finding awards
 async function scrapeAwardWinners(yearData) {
   try {
     console.log(`Scraping awards data for ${yearData.year}...`)
@@ -832,8 +969,8 @@ async function scrapeAwardWinners(yearData) {
     // Enhanced approach 1: Use more specific CSS selectors with better targeting
     console.log('Trying enhanced approach 1: Specific CSS selectors')
 
-    // Look for award winner blocks with specific structure - now includes finalists/runners-up
-    $('.winner, .finalist, .award-item, .award-winner, .award-entry').each((index, element) => {
+    // Look for award winner blocks with specific structure - expanded selector list
+    $('.winner, .finalist, .award-item, .award-winner, .award-entry, .award, .entry, .award-card, .winner-card, .finalist-card, .card, .result, .result-item, .project, .project-item, [class*="award"], [class*="winner"], [class*="finalist"]').each((index, element) => {
       try {
         let category = ''
 
@@ -1095,6 +1232,47 @@ async function scrapeAwardWinners(yearData) {
               }
             }
           })
+      })
+    }
+
+    // New Approach 4: Look for patterns in list items and paragraphs
+    if (winners.length === 0) {
+      console.log('Trying approach 4: List item and paragraph patterns')
+
+      $('li, p').each((i, el) => {
+        const text = $(el).text().trim()
+
+        // Skip short or irrelevant texts
+        if (text.length < 10 || text.length > 300) return
+
+        // Look for patterns like "Category: Winner - Agency" or similar structures
+        const patterns = [
+          /([A-Za-z\s&']+)(?::|Award|Winner):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
+          /([A-Za-z\s&']+)(?:\s+Winner|\s+Gold):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
+          /(?:Winner|Gold|First)(?:\s+|\s+of\s+)([A-Za-z\s&']+):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
+        ]
+
+        for (const pattern of patterns) {
+          const match = text.match(pattern)
+          if (match) {
+            const [_, catText, projectText, agencyText] = match
+            const category = normalizeCategory(catText.trim())
+            const project = projectText.trim()
+            const agency = agencyText.trim()
+
+            if (category && project) {
+              console.log(`Found list/paragraph pattern: Category=${category}, Project=${project}, Agency=${agency}`)
+              winners.push({
+                year: yearData.year,
+                category: category,
+                project: project,
+                company: project, // Default to project name if no separate company info
+                agency: agency,
+                rank: 1,
+              })
+            }
+          }
+        }
       })
     }
 

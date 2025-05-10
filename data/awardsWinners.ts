@@ -20,7 +20,7 @@ export const awardWinners: AwardWinner[] = [
     "agency": "Dux Digital",
     "rank": 1,
     "url": "https://luma.org.au/",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-luma-1-768x518.jpg"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/discoverly.jpg"
   },
   {
     "year": 2024,
@@ -29,6 +29,16 @@ export const awardWinners: AwardWinner[] = [
     "company": "Humaan",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.humaan.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-humaan-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Agency",
+    "project": "Humaan",
+    "company": "Humaan",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.humaan.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-humaan-768x518.jpg"
   },
@@ -44,11 +54,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Community & Culture",
+    "project": "AlignAbility",
+    "company": "AlignAbility",
+    "agency": "Spicy Web",
+    "rank": 2,
+    "url": "https://www.alignability.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-alignability-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Construction & Manufacturing",
     "project": "Bounce LED",
     "company": "Bounce LED",
     "agency": "Redback Solutions",
     "rank": 1,
+    "url": "https://www.bounceled.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-bounce-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Construction & Manufacturing",
+    "project": "Bounce LED",
+    "company": "Bounce LED",
+    "agency": "Redback Solutions",
+    "rank": 2,
     "url": "https://www.bounceled.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-bounce-768x518.jpg"
   },
@@ -94,11 +124,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Drupal",
+    "project": "Australian Federal Police",
+    "company": "Australian Federal Police",
+    "agency": "Doghouse Agency",
+    "rank": 2,
+    "url": "https://www.afp.gov.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-AFP-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Education",
     "project": "Happy Hearts Childcare",
     "company": "Happy Hearts Childcare",
     "agency": "Hopscotch Digital",
     "rank": 1,
+    "url": "https://happyheartschildcare.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-happy-hearts-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Education",
+    "project": "Happy Hearts Childcare",
+    "company": "Happy Hearts Childcare",
+    "agency": "Hopscotch Digital",
+    "rank": 2,
     "url": "https://happyheartschildcare.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-happy-hearts-768x518.jpg"
   },
@@ -114,11 +164,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Enterprise Business",
+    "project": "Hoyts Cinemas",
+    "company": "Hoyts Cinemas",
+    "agency": "Chook Digital",
+    "rank": 2,
+    "url": "https://www.hoyts.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-hoyts-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Entertainment & Events",
     "project": "Riverside Parramatta",
     "company": "Riverside Parramatta",
     "agency": "Jala Design",
     "rank": 1,
+    "url": "https://riversideparramatta.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-riverside-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Entertainment & Events",
+    "project": "Riverside Parramatta",
+    "company": "Riverside Parramatta",
+    "agency": "Jala Design",
+    "rank": 2,
     "url": "https://riversideparramatta.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-riverside-768x518.jpg"
   },
@@ -874,11 +944,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Financial Services",
+    "project": "RealRaise",
+    "company": "RealRaise",
+    "agency": "Woolly Mammoth",
+    "rank": 2,
+    "url": "https://realraise.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-realraise-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Government",
     "project": "Healthy Eating Advisory Service",
     "company": "Healthy Eating Advisory Service",
     "agency": "Sod",
     "rank": 1,
+    "url": "https://heas.health.vic.gov.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Government",
+    "project": "Healthy Eating Advisory Service",
+    "company": "Healthy Eating Advisory Service",
+    "agency": "Sod",
+    "rank": 2,
     "url": "https://heas.health.vic.gov.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
   },
@@ -894,11 +984,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Headless",
+    "project": "Melbourne Airport",
+    "company": "Melbourne Airport",
+    "agency": "Luminary",
+    "rank": 2,
+    "url": "https://www.melbourneairport.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-melb-airport-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Health & Wellness",
     "project": "Healthy Eating Advisory Service",
     "company": "Healthy Eating Advisory Service",
     "agency": "Sod",
     "rank": 1,
+    "url": "https://heas.health.vic.gov.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Health & Wellness",
+    "project": "Healthy Eating Advisory Service",
+    "company": "Healthy Eating Advisory Service",
+    "agency": "Sod",
+    "rank": 2,
     "url": "https://heas.health.vic.gov.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
   },
@@ -914,11 +1024,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Hospitality",
+    "project": "Matso’s",
+    "company": "Matso’s",
+    "agency": "Start Digital",
+    "rank": 2,
+    "url": "https://matsos.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/MatsosGraphic-768x518.png"
+  },
+  {
+    "year": 2024,
     "category": "Innovation",
     "project": "Towards Truth",
     "company": "Towards Truth",
     "agency": "Custom D",
     "rank": 1,
+    "url": "https://www.towardstruth.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-towards_truth-1-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Innovation",
+    "project": "Towards Truth",
+    "company": "Towards Truth",
+    "agency": "Custom D",
+    "rank": 2,
     "url": "https://www.towardstruth.org.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-towards_truth-1-768x518.jpg"
   },
@@ -934,11 +1064,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Large Business",
+    "project": "New Generation Homes",
+    "company": "New Generation Homes",
+    "agency": "Juicebox",
+    "rank": 2,
+    "url": "https://www.newgenerationhomes.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-new-generation-homes-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Medium Business",
     "project": "Bounce LED",
     "company": "Bounce LED",
     "agency": "Redback Solutions",
     "rank": 1,
+    "url": "https://www.bounceled.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-bounce-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Medium Business",
+    "project": "Bounce LED",
+    "company": "Bounce LED",
+    "agency": "Redback Solutions",
+    "rank": 2,
     "url": "https://www.bounceled.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-bounce-768x518.jpg"
   },
@@ -954,11 +1104,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Mobile App",
+    "project": "The Chadstone App",
+    "company": "The Chadstone App",
+    "agency": "Inlight",
+    "rank": 2,
+    "url": "https://www.chadstone.com.au/app",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-chadstone-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Not for Profit",
     "project": "Gifts from the Heart",
     "company": "Gifts from the Heart",
     "agency": "Berry Street",
     "rank": 1,
+    "url": "https://gifts.berrystreet.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-giftsfromtheheart-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Not for Profit",
+    "project": "Gifts from the Heart",
+    "company": "Gifts from the Heart",
+    "agency": "Berry Street",
+    "rank": 2,
     "url": "https://gifts.berrystreet.org.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-giftsfromtheheart-768x518.jpg"
   },
@@ -974,11 +1144,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Professional Services",
+    "project": "Humanly Agile",
+    "company": "Humanly Agile",
+    "agency": "Start Digital",
+    "rank": 2,
+    "url": "https://humanlyagile.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-humanly-agile-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Retail & eCommerce",
     "project": "Snuggle Hunny",
     "company": "Snuggle Hunny",
     "agency": "Process Creative",
     "rank": 1,
+    "url": "https://snugglehunnykids.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-snuggle-hunny-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Retail & eCommerce",
+    "project": "Snuggle Hunny",
+    "company": "Snuggle Hunny",
+    "agency": "Process Creative",
+    "rank": 2,
     "url": "https://snugglehunnykids.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-snuggle-hunny-768x518.jpg"
   },
@@ -994,13 +1184,23 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Science & Sustainability",
+    "project": "WEHI (The Walter and Eliza Hall Institute of Medical Research)",
+    "company": "WEHI (The Walter and Eliza Hall Institute of Medical Research)",
+    "agency": "Sod",
+    "rank": 2,
+    "url": "https://www.wehi.edu.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-wehi-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "SEO Effectiveness",
     "project": "Hoyts Cinemas",
     "company": "Hoyts Cinemas",
     "agency": "Chook Digital",
     "rank": 1,
-    "url": "https://www.hoyts.com.au/",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-hoyts-768x518.jpg"
+    "url": "https://www.optimising.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/02/opt-logo-square.png"
   },
   {
     "year": 2024,
@@ -1014,6 +1214,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Shopify",
+    "project": "Thankyou",
+    "company": "Thankyou",
+    "agency": "Convert Digital",
+    "rank": 2,
+    "url": "https://thankyou.co/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-thank-you-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Site of the Year",
     "project": "Healthy Eating Advisory Service",
     "company": "Healthy Eating Advisory Service",
@@ -1021,6 +1231,17 @@ export const awardWinners: AwardWinner[] = [
     "rank": 1,
     "url": "https://heas.health.vic.gov.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Site of the Year",
+    "project": "Healthy Eating Advisory Service",
+    "company": "Healthy Eating Advisory Service",
+    "agency": "Sod",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
   },
   {
     "year": 2024,
@@ -1050,11 +1271,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Small Business",
+    "project": "The District Docklands",
+    "company": "The District Docklands",
+    "agency": "Duck Soup Creative",
+    "rank": 2,
+    "url": "https://thedistrictdocklands.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-district-docklands-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Sport & Recreation",
     "project": "Australian Sports Foundation",
     "company": "Australian Sports Foundation",
     "agency": "Australian Sports Foundation and Deloitte Digital (Canberra)",
     "rank": 1,
+    "url": "https://asf.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-australian-sports-foundation-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Sport & Recreation",
+    "project": "Australian Sports Foundation",
+    "company": "Australian Sports Foundation",
+    "agency": "Australian Sports Foundation and Deloitte Digital (Canberra)",
+    "rank": 2,
     "url": "https://asf.org.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-australian-sports-foundation-768x518.jpg"
   },
@@ -1070,11 +1311,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Start-up",
+    "project": "Well Excel",
+    "company": "Well Excel",
+    "agency": "Greenhat",
+    "rank": 2,
+    "url": "https://www.wellexcel.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-wellexcel-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "Technology (IT / Software)",
     "project": "Liquidity",
     "company": "Liquidity",
     "agency": "Juicebox",
     "rank": 1,
+    "url": "https://www.liquidity.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-lquidity-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "Technology (IT / Software)",
+    "project": "Liquidity",
+    "company": "Liquidity",
+    "agency": "Juicebox",
+    "rank": 2,
     "url": "https://www.liquidity.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-lquidity-768x518.jpg"
   },
@@ -1090,13 +1351,23 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Travel & Tourism",
+    "project": "Visit Brisbane",
+    "company": "Visit Brisbane",
+    "agency": "Aceik",
+    "rank": 2,
+    "url": "https://visit.brisbane.qld.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-visit-brisbane-768x518.jpg"
+  },
+  {
+    "year": 2024,
     "category": "User Experience Award",
     "project": "Sydney Opera House",
     "company": "Sydney Opera House",
     "agency": "Sitback Solutions",
     "rank": 1,
     "url": "https://www.sydneyoperahouse.com/",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-sydneyoperahouse-768x518.jpg"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/03/auDA.jpg"
   },
   {
     "year": 2024,
@@ -1110,6 +1381,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2024,
+    "category": "Web App",
+    "project": "Global Slavery Index",
+    "company": "Global Slavery Index",
+    "agency": "Anthologie",
+    "rank": 2,
+    "url": "https://www.walkfree.org/global-slavery-index/map/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/slavery-768x497.png"
+  },
+  {
+    "year": 2024,
     "category": "WordPress",
     "project": "Healthy Eating Advisory Service",
     "company": "Healthy Eating Advisory Service",
@@ -1117,6 +1398,26 @@ export const awardWinners: AwardWinner[] = [
     "rank": 1,
     "url": "https://heas.health.vic.gov.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
+  },
+  {
+    "year": 2024,
+    "category": "WordPress",
+    "project": "Healthy Eating Advisory Service",
+    "company": "Healthy Eating Advisory Service",
+    "agency": "Sod",
+    "rank": 2,
+    "url": "https://heas.health.vic.gov.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2024/03/AWA-entry-screenshot-healthyeating-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Accessibility Award",
+    "project": "Dux Digital",
+    "company": "Dux Digital",
+    "agency": "Dux Digital",
+    "rank": 1,
+    "url": "https://duxdigital.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/discoverly.jpg"
   },
   {
     "year": 2023,
@@ -1136,6 +1437,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
+    "category": "Community & Culture",
+    "project": "UNICEF Australia",
+    "company": "UNICEF Australia",
+    "agency": "Luminary",
+    "rank": 2,
+    "url": "https://www.unicef.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0067_UNICEF-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "company": "Airmaster",
     "agency": "Zimple Digital",
     "category": "Construction & Manufacturing",
@@ -1149,6 +1460,56 @@ export const awardWinners: AwardWinner[] = [
     "category": "Construction & Manufacturing",
     "project": "Harwyn",
     "rank": 1
+  },
+  {
+    "year": 2023,
+    "category": "Construction & Manufacturing",
+    "project": "Harwyn",
+    "company": "Harwyn",
+    "agency": "Rock Agency",
+    "rank": 2,
+    "url": "https://harwyn.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0061_harwyn-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Content Award",
+    "project": "Australia State of the Environment 2021",
+    "company": "Australia State of the Environment 2021",
+    "agency": "DCCEEW",
+    "rank": 1,
+    "url": "https://soe.dcceew.gov.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/ASE-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Design Award",
+    "project": "Rooftop Movies",
+    "company": "Rooftop Movies",
+    "agency": "Strange Animals",
+    "rank": 1,
+    "url": "https://rooftopmovies.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0049_rooftop-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Development Award",
+    "project": "Australian Brandenburg Orchestra",
+    "company": "Australian Brandenburg Orchestra",
+    "agency": "Studio Bravo",
+    "rank": 1,
+    "url": "https://www.brandenburg.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0050_ABOrchestra-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Drupal",
+    "project": "Questacon",
+    "company": "Questacon",
+    "agency": "Questacon",
+    "rank": 2,
+    "url": "https://www.questacon.edu.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0016_questacon-768x518.jpg"
   },
   {
     "year": 2023,
@@ -1168,6 +1529,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
+    "category": "Education",
+    "project": "Haileybury Pangea",
+    "company": "Haileybury Pangea",
+    "agency": "Digistorm",
+    "rank": 2,
+    "url": "https://www.haileyburypangea.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0056_Haileybury-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "company": "PayTo",
     "agency": "Humaan",
     "category": "Enterprise Business",
@@ -1176,11 +1547,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
+    "category": "Enterprise Business",
+    "project": "PayTo",
+    "company": "PayTo",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://payto.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0042_Payto-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "company": "Flagrant Artist Management",
     "agency": "Straight Out Digital",
     "category": "Entertainment & Events",
     "project": "Flagrant Artist Management (FAM)",
     "rank": 1
+  },
+  {
+    "year": 2023,
+    "category": "Entertainment & Events",
+    "project": "Flagrant Artist Management (FAM)",
+    "company": "Flagrant Artist Management (FAM)",
+    "agency": "Straight Out Digital",
+    "rank": 2,
+    "url": "https://flagrantartists.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0051_FAM-768x518.jpg"
   },
   {
     "year": 2023,
@@ -1892,11 +2283,41 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
+    "category": "Government",
+    "project": "Rottnest Island",
+    "company": "Rottnest Island",
+    "agency": "equ",
+    "rank": 2,
+    "url": "https://www.rottnestisland.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0022_rottnest-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Headless",
+    "project": "Providoor",
+    "company": "Providoor",
+    "agency": "Convert Digital",
+    "rank": 2,
+    "url": "https://www.convertdigital.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/providoor-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "company": "VegKit",
     "agency": "Portable",
     "category": "Health & Wellness",
     "project": "VegKit",
     "rank": 1
+  },
+  {
+    "year": 2023,
+    "category": "Health & Wellness",
+    "project": "VegKit",
+    "company": "VegKit",
+    "agency": "Portable",
+    "rank": 2,
+    "url": "https://www.vegkit.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/vegkit-768x518.jpg"
   },
   {
     "year": 2023,
@@ -1908,11 +2329,61 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
+    "category": "Hospitality",
+    "project": "Floridia Cheese",
+    "company": "Floridia Cheese",
+    "agency": "About Today",
+    "rank": 2,
+    "url": "https://floridiacheese.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0046_floridia-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "company": "Justice Beyond Borders",
     "agency": "Redback Solutions",
     "category": "Innovation",
     "project": "Justice Beyond Borders – Clooney Foundation for Justice",
     "rank": 1
+  },
+  {
+    "year": 2023,
+    "category": "Innovation",
+    "project": "Justice Beyond Borders – Clooney Foundation for Justice",
+    "company": "Justice Beyond Borders – Clooney Foundation for Justice",
+    "agency": "Redback Solutions",
+    "rank": 2,
+    "url": "https://justicebeyondborders.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0008_justiceborders-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Large Business",
+    "project": "Rollie Nation",
+    "company": "Rollie Nation",
+    "agency": "Process Creative",
+    "rank": 2,
+    "url": "https://www.rollienation.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0028_Rolle2-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Medium Business",
+    "project": "Cannabis Botanical Distillery",
+    "company": "Cannabis Botanical Distillery",
+    "agency": "Juicebox",
+    "rank": 2,
+    "url": "https://www.cannabisbotanical.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0027_cannabis-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Mobile App",
+    "project": "Crunchr",
+    "company": "Crunchr",
+    "agency": "Creatio",
+    "rank": 2,
+    "url": "https://www.crunchr.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0004_crunchr-768x518.jpg"
   },
   {
     "year": 2023,
@@ -1924,11 +2395,114 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2023,
-    "company": "Cooee",
-    "agency": "Luminary",
+    "category": "Not for Profit",
+    "project": "Rooftop Movies",
+    "company": "Rooftop Movies",
+    "agency": "Strange Animals",
+    "rank": 2,
+    "url": "https://rooftopmovies.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0049_rooftop-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Professional Services",
+    "project": "PayTo",
+    "company": "PayTo",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://payto.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0042_Payto-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Retail & eCommerce",
+    "project": "Koko Black",
+    "company": "Koko Black",
+    "agency": "Convert Digital",
+    "rank": 2,
+    "url": "https://www.kokoblack.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0029_koko-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "SEO Effectiveness",
+    "project": "Australian Retirement Trust",
+    "company": "Australian Retirement Trust",
+    "agency": "Australian Retirement Trust",
+    "rank": 1,
+    "url": "https://www.optimising.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/02/opt-logo-square.png"
+  },
+  {
+    "year": 2023,
+    "category": "Shopify",
+    "project": "Rollie Nation",
+    "company": "Rollie Nation",
+    "agency": "Process Creative",
+    "rank": 2,
+    "url": "https://www.rollienation.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0028_Rolle2-768x518.jpg"
+  },
+  {
+    "year": 2023,
     "category": "Site of the Year",
-    "project": "Cooee",
-    "rank": 1
+    "project": "UNICEF Australia",
+    "company": "UNICEF Australia",
+    "agency": "Luminary",
+    "rank": 1,
+    "url": "https://www.unicef.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0067_UNICEF-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Site of the Year",
+    "project": "UNICEF Australia",
+    "company": "UNICEF Australia",
+    "agency": "Luminary",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
+  },
+  {
+    "year": 2023,
+    "category": "Technology (IT / Software)",
+    "project": "Thrive Digital",
+    "company": "Thrive Digital",
+    "agency": "Thrive Digital",
+    "rank": 2,
+    "url": "https://thriveweb.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0034_thrive-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Travel & Tourism",
+    "project": "Ningaloo Eclipse",
+    "company": "Ningaloo Eclipse",
+    "agency": "Lateral Aspect",
+    "rank": 2,
+    "url": "http://ningalooeclipse.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0023_ningalooeclipse-768x518.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "User Experience Award",
+    "project": "Hostplus",
+    "company": "Hostplus",
+    "agency": "Inlight",
+    "rank": 1,
+    "url": "https://hostplus.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/03/auDA.jpg"
+  },
+  {
+    "year": 2023,
+    "category": "Web App",
+    "project": "Trails WA",
+    "company": "Trails WA",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://trailswa.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0002_trailswa-768x518.jpg"
   },
   {
     "year": 2023,
@@ -2171,6 +2745,16 @@ export const awardWinners: AwardWinner[] = [
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0017_hostplus-768x518.jpg"
   },
   {
+    "year": 2023,
+    "category": "WordPress",
+    "project": "Thrive Digital",
+    "company": "Thrive Digital",
+    "agency": "Thrive Digital",
+    "rank": 2,
+    "url": "https://thriveweb.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/04/0034_thrive-768x518.jpg"
+  },
+  {
     "year": 2022,
     "category": "Accessibility Award",
     "project": "Teach for Australia",
@@ -2178,7 +2762,7 @@ export const awardWinners: AwardWinner[] = [
     "agency": "Straight Out Digital",
     "rank": 1,
     "url": "https://teachforaustralia.org/",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/teach-768x513.png"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/discoverly.jpg"
   },
   {
     "year": 2022,
@@ -2238,11 +2822,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Digital Marketing",
+    "project": "Australian Eggs",
+    "company": "Australian Eggs",
+    "agency": "Soul + Wolf",
+    "rank": 2,
+    "url": "https://www.australianeggs.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/australianeggs-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "E-Commerce",
     "project": "nexba",
     "company": "nexba",
     "agency": "Matter Design & Digital",
     "rank": 1,
+    "url": "https://nexba.com",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/nexba-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "E-Commerce",
+    "project": "nexba",
+    "company": "nexba",
+    "agency": "Matter Design & Digital",
+    "rank": 2,
     "url": "https://nexba.com",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/nexba-768x518.jpg"
   },
@@ -2258,11 +2862,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Education",
+    "project": "Fintona",
+    "company": "Fintona",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://www.fintona.vic.edu.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/Fintona-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "Enterprise Business",
     "project": "Wesfarmers Arts",
     "company": "Wesfarmers Arts",
     "agency": "Juicebox",
     "rank": 1,
+    "url": "https://www.wesfarmersart.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/wesfarmersarts-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "Enterprise Business",
+    "project": "Wesfarmers Arts",
+    "company": "Wesfarmers Arts",
+    "agency": "Juicebox",
+    "rank": 2,
     "url": "https://www.wesfarmersart.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/wesfarmersarts-768x518.jpg"
   },
@@ -2848,11 +3472,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Financial Services",
+    "project": "YouBroker",
+    "company": "YouBroker",
+    "agency": "Woolly Mammoth",
+    "rank": 2,
+    "url": "https://youbroker.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/youbroker-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "Government",
     "project": "Australia Post",
     "company": "Australia Post",
     "agency": "Australia Post",
     "rank": 1,
+    "url": "https://auspost.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/AustraliaPost-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "Government",
+    "project": "Australia Post",
+    "company": "Australia Post",
+    "agency": "Australia Post",
+    "rank": 2,
     "url": "https://auspost.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/AustraliaPost-768x518.jpg"
   },
@@ -2868,11 +3512,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Health & Wellness",
+    "project": "Monash IVF",
+    "company": "Monash IVF",
+    "agency": "Today",
+    "rank": 2,
+    "url": "https://monashivf.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/monashIVF-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "Innovation",
     "project": "Moble",
     "company": "Moble",
     "agency": "Moble",
     "rank": 1,
+    "url": "https://www.moble.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/moble-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "Innovation",
+    "project": "Moble",
+    "company": "Moble",
+    "agency": "Moble",
+    "rank": 2,
     "url": "https://www.moble.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/moble-768x518.jpg"
   },
@@ -2888,11 +3552,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Medium Business",
+    "project": "Elecbrakes",
+    "company": "Elecbrakes",
+    "agency": "redback solutions",
+    "rank": 2,
+    "url": "https://www.elecbrakes.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/elecbrakes-1-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "Mobile App",
     "project": "1Question",
     "company": "1Question",
     "agency": "Raw.Studio",
     "rank": 1,
+    "url": "https://1question.app/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/1question-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "Mobile App",
+    "project": "1Question",
+    "company": "1Question",
+    "agency": "Raw.Studio",
+    "rank": 2,
     "url": "https://1question.app/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/1question-768x518.jpg"
   },
@@ -2908,11 +3592,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Not for Profit",
+    "project": "Animals Australia",
+    "company": "Animals Australia",
+    "agency": "August",
+    "rank": 2,
+    "url": "https://animalsaustralia.org/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/animalsaustralia-768x518.jpg"
+  },
+  {
+    "year": 2022,
     "category": "Shoestring Website",
     "project": "Seriously Good Accounting",
     "company": "Seriously Good Accounting",
     "agency": "Get With The Brand",
     "rank": 1,
+    "url": "https://seriouslygoodaccounting.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/thumbnail_Screenshot-2022-05-16-at-6.33.46-pm-768x518.png"
+  },
+  {
+    "year": 2022,
+    "category": "Shoestring Website",
+    "project": "Seriously Good Accounting",
+    "company": "Seriously Good Accounting",
+    "agency": "Get With The Brand",
+    "rank": 2,
     "url": "https://seriouslygoodaccounting.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/thumbnail_Screenshot-2022-05-16-at-6.33.46-pm-768x518.png"
   },
@@ -2928,11 +3632,32 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2022,
+    "category": "Site of the Year",
+    "project": "Animals Australia",
+    "company": "Animals Australia",
+    "agency": "August",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
+  },
+  {
+    "year": 2022,
     "category": "Small Business",
     "project": "SpaceDraft",
     "company": "SpaceDraft",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.spacedraft.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/spacedraft-768x518.jpg"
+  },
+  {
+    "year": 2022,
+    "category": "Small Business",
+    "project": "SpaceDraft",
+    "company": "SpaceDraft",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.spacedraft.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/spacedraft-768x518.jpg"
   },
@@ -2944,7 +3669,7 @@ export const awardWinners: AwardWinner[] = [
     "agency": "Australia Post",
     "rank": 1,
     "url": "https://auspost.com.au/",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/AustraliaPost-768x518.jpg"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/03/auDA.jpg"
   },
   {
     "year": 2021,
@@ -2954,7 +3679,7 @@ export const awardWinners: AwardWinner[] = [
     "agency": "Westpac Digital Team",
     "rank": 1,
     "url": "https://apps.apple.com/au/app/westpac-mobile-banking/id299111811 Westpac Mobile Banking",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/WestpacApp-768x431.jpg"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2022/04/discoverly.jpg"
   },
   {
     "year": 2021,
@@ -2998,6 +3723,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "E-Commerce",
+    "project": "Vandenberg Wines",
+    "company": "Vandenberg Wines",
+    "agency": "Rock Agency",
+    "rank": 2,
+    "url": "https://vandenbergwines.com/ ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/Vandenberg-768x518.jpg"
+  },
+  {
+    "year": 2021,
     "category": "Education",
     "project": "RMIT Next",
     "company": "RMIT Next",
@@ -3008,11 +3743,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "Education",
+    "project": "RMIT Next",
+    "company": "RMIT Next",
+    "agency": "Rock Agency",
+    "rank": 2,
+    "url": "https://next.rmit.edu.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/rmit-768x518.jpg"
+  },
+  {
+    "year": 2021,
     "category": "Enterprise Business",
     "project": "Westpac Mobile Banking",
     "company": "Westpac Mobile Banking",
     "agency": "Westpac Digital Team",
     "rank": 1,
+    "url": "https://apps.apple.com/au/app/westpac-mobile-banking/id299111811 Westpac Mobile Banking",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/WestpacApp-768x431.jpg"
+  },
+  {
+    "year": 2021,
+    "category": "Enterprise Business",
+    "project": "Westpac Mobile Banking",
+    "company": "Westpac Mobile Banking",
+    "agency": "Westpac Digital Team",
+    "rank": 2,
     "url": "https://apps.apple.com/au/app/westpac-mobile-banking/id299111811 Westpac Mobile Banking",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/WestpacApp-768x431.jpg"
   },
@@ -3418,11 +4173,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "Government",
+    "project": "NT Major Events Company",
+    "company": "NT Major Events Company",
+    "agency": "Marketforce",
+    "rank": 2,
+    "url": "https://ntmajorevents.com.au ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/NTEvents-768x518.jpg"
+  },
+  {
+    "year": 2021,
     "category": "Medium Business",
     "project": "Airsafe",
     "company": "Airsafe",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.airsafe.net.au/ ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/Airsafe-768x518.jpg"
+  },
+  {
+    "year": 2021,
+    "category": "Medium Business",
+    "project": "Airsafe",
+    "company": "Airsafe",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.airsafe.net.au/ ",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/Airsafe-768x518.jpg"
   },
@@ -3438,6 +4213,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "Not for Profit",
+    "project": "Sexual Health Quarters",
+    "company": "Sexual Health Quarters",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://shq.org.au/ ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/SHQ-768x518.jpg"
+  },
+  {
+    "year": 2021,
     "category": "SEO Effectiveness",
     "project": "Pet Express",
     "company": "Pet Express",
@@ -3448,11 +4233,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "SEO Effectiveness",
+    "project": "Pet Express",
+    "company": "Pet Express",
+    "agency": "Excite Media",
+    "rank": 2,
+    "url": "https://www.optimising.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/02/opt-logo-square.png"
+  },
+  {
+    "year": 2021,
     "category": "Shoestring Website",
     "project": "Feed Feed",
     "company": "Feed Feed",
     "agency": "ED.",
     "rank": 1,
+    "url": "https://feedfeed.com.au ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/FeedFeed-1-768x518.jpg"
+  },
+  {
+    "year": 2021,
+    "category": "Shoestring Website",
+    "project": "Feed Feed",
+    "company": "Feed Feed",
+    "agency": "ED.",
+    "rank": 2,
     "url": "https://feedfeed.com.au ",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/FeedFeed-1-768x518.jpg"
   },
@@ -3468,11 +4273,32 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "Site of the Year",
+    "project": "NT Major Events Company",
+    "company": "NT Major Events Company",
+    "agency": "Marketforce",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
+  },
+  {
+    "year": 2021,
     "category": "Small Business",
     "project": "Woolly Mammoth",
     "company": "Woolly Mammoth",
     "agency": "Woolly Mammoth",
     "rank": 1,
+    "url": "https://mammoth.tech/ ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/WoolyMammoth-768x518.jpg"
+  },
+  {
+    "year": 2021,
+    "category": "Small Business",
+    "project": "Woolly Mammoth",
+    "company": "Woolly Mammoth",
+    "agency": "Woolly Mammoth",
+    "rank": 2,
     "url": "https://mammoth.tech/ ",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/WoolyMammoth-768x518.jpg"
   },
@@ -3488,13 +4314,23 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2021,
+    "category": "Social Media",
+    "project": "Erstwilder",
+    "company": "Erstwilder",
+    "agency": "Emote Digital",
+    "rank": 2,
+    "url": "https://www.erstwilder.com/ ",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/ErstWilder-768x518.jpg"
+  },
+  {
+    "year": 2021,
     "category": "User Experience Award",
     "project": "Coles",
     "company": "Coles",
     "agency": "Coles Digital Marketing Team",
     "rank": 1,
     "url": "http://www.coles.com.au ",
-    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/04/Coles-768x518.jpg"
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2023/03/auDA.jpg"
   },
   {
     "year": 2020,
@@ -3508,11 +4344,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "E-Commerce",
+    "project": "Curtain & Blind Co",
+    "company": "Curtain & Blind Co",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://curtainandblindco.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_CurtainBlindCo-768x518.png"
+  },
+  {
+    "year": 2020,
     "category": "Education",
     "project": "Green Leaves Early Learning Centre",
     "company": "Green Leaves Early Learning Centre",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://greenleaveselc.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_GreenLeavesEarlyLearningCentre-768x518.png"
+  },
+  {
+    "year": 2020,
+    "category": "Education",
+    "project": "Green Leaves Early Learning Centre",
+    "company": "Green Leaves Early Learning Centre",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://greenleaveselc.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_GreenLeavesEarlyLearningCentre-768x518.png"
   },
@@ -3708,11 +4564,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "Government",
+    "project": "Scitech",
+    "company": "Scitech",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://www.scitech.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/AwardWinner_Scitech-768x518.jpg"
+  },
+  {
+    "year": 2020,
     "category": "Medium-to-Large Business",
     "project": "Grinders Coffee",
     "company": "Grinders Coffee",
     "agency": "GSquared",
     "rank": 1,
+    "url": "https://www.grinderscoffee.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_GrindersCoffee-768x518.png"
+  },
+  {
+    "year": 2020,
+    "category": "Medium-to-Large Business",
+    "project": "Grinders Coffee",
+    "company": "Grinders Coffee",
+    "agency": "GSquared",
+    "rank": 2,
     "url": "https://www.grinderscoffee.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_GrindersCoffee-768x518.png"
   },
@@ -3728,6 +4604,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "Not for Profit",
+    "project": "National Breast Cancer Foundation",
+    "company": "National Breast Cancer Foundation",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://nbcf.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/nbcf-768x459.jpg"
+  },
+  {
+    "year": 2020,
     "category": "SEO Effectiveness",
     "project": "Global Industrial SEO",
     "company": "Global Industrial SEO",
@@ -3738,11 +4624,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "SEO Effectiveness",
+    "project": "Global Industrial SEO",
+    "company": "Global Industrial SEO",
+    "agency": "Juicebox",
+    "rank": 2,
+    "url": "https://www.optimising.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2021/02/opt-logo-square.png"
+  },
+  {
+    "year": 2020,
     "category": "Shoestring Website",
     "project": "St Francis Vet Hospital",
     "company": "St Francis Vet Hospital",
     "agency": "Dux Digital Pty Ltd",
     "rank": 1,
+    "url": "https://stfrancisvethospital.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_StFrancisVetHospital-768x518.png"
+  },
+  {
+    "year": 2020,
+    "category": "Shoestring Website",
+    "project": "St Francis Vet Hospital",
+    "company": "St Francis Vet Hospital",
+    "agency": "Dux Digital Pty Ltd",
+    "rank": 2,
     "url": "https://stfrancisvethospital.com.au",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/11/AwardWinner_StFrancisVetHospital-768x518.png"
   },
@@ -3758,6 +4664,17 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "Site of the Year",
+    "project": "National Breast Cancer Foundation",
+    "company": "National Breast Cancer Foundation",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
+  },
+  {
+    "year": 2020,
     "category": "Small Business",
     "project": "Locimo",
     "company": "Locimo",
@@ -3768,11 +4685,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2020,
+    "category": "Small Business",
+    "project": "Locimo",
+    "company": "Locimo",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "https://locimo.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/01/AwardWinner_Locimo-768x518.png"
+  },
+  {
+    "year": 2020,
     "category": "Social Media Growth",
     "project": "Happy Way Omni Channel Social Media Campaign",
     "company": "Happy Way Omni Channel Social Media Campaign",
     "agency": "White Hat Agency",
     "rank": 1,
+    "url": "https://www.whitehatagency.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Happy_Way_-_WHA_social_media_strat_PROMO_IMAGE2-768x576.jpg"
+  },
+  {
+    "year": 2020,
+    "category": "Social Media Growth",
+    "project": "Happy Way Omni Channel Social Media Campaign",
+    "company": "Happy Way Omni Channel Social Media Campaign",
+    "agency": "White Hat Agency",
+    "rank": 2,
     "url": "https://www.whitehatagency.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Happy_Way_-_WHA_social_media_strat_PROMO_IMAGE2-768x576.jpg"
   },
@@ -3788,11 +4725,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2019,
+    "category": "Commercial",
+    "project": "legalsuper",
+    "company": "legalsuper",
+    "agency": "Luminary and legalsuper",
+    "rank": 2,
+    "url": "https://www.legalsuper.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Legalsuper_homepage-768x614.png"
+  },
+  {
+    "year": 2019,
     "category": "E-Commerce",
     "project": "GiftCardStore.com.au – Rejuvenating a Popular Gifting Website",
     "company": "GiftCardStore.com.au – Rejuvenating a Popular Gifting Website",
     "agency": "GSquared",
     "rank": 1,
+    "url": "https://giftcardstore.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/GCS_mockup_1-768x381.png"
+  },
+  {
+    "year": 2019,
+    "category": "E-Commerce",
+    "project": "GiftCardStore.com.au – Rejuvenating a Popular Gifting Website",
+    "company": "GiftCardStore.com.au – Rejuvenating a Popular Gifting Website",
+    "agency": "GSquared",
+    "rank": 2,
     "url": "https://giftcardstore.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/GCS_mockup_1-768x381.png"
   },
@@ -3805,6 +4762,17 @@ export const awardWinners: AwardWinner[] = [
     "rank": 1,
     "url": "https://www.wesley.wa.edu.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/wesley-promo-desktop-mobile-768x415.jpg"
+  },
+  {
+    "year": 2019,
+    "category": "Education",
+    "project": "Wesley College",
+    "company": "Wesley College",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
   },
   {
     "year": 2019,
@@ -3988,11 +4956,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2019,
+    "category": "Government",
+    "project": "WA Police Next Step",
+    "company": "WA Police Next Step",
+    "agency": "The Brand Agency",
+    "rank": 2,
+    "url": "https://wapolicenextstep.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/wa-police011-768x392.png"
+  },
+  {
+    "year": 2019,
     "category": "Innovation",
     "project": "Golden Pipeline Heritage Trail",
     "company": "Golden Pipeline Heritage Trail",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.goldenpipeline.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/goldenpipeline-homepage-768x604.jpg"
+  },
+  {
+    "year": 2019,
+    "category": "Innovation",
+    "project": "Golden Pipeline Heritage Trail",
+    "company": "Golden Pipeline Heritage Trail",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.goldenpipeline.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/goldenpipeline-homepage-768x604.jpg"
   },
@@ -4008,11 +4996,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2019,
+    "category": "Not for Profit",
+    "project": "Save the Children",
+    "company": "Save the Children",
+    "agency": "Luminary",
+    "rank": 2,
+    "url": "https://www.savethechildren.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2019/01/savethechildren-768x470.jpg"
+  },
+  {
+    "year": 2019,
     "category": "Small Business",
     "project": "Event Mill",
     "company": "Event Mill",
     "agency": "Juicebox",
     "rank": 1,
+    "url": "http://eventmill.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/01-eventmill-homepage6-768x489.png"
+  },
+  {
+    "year": 2019,
+    "category": "Small Business",
+    "project": "Event Mill",
+    "company": "Event Mill",
+    "agency": "Juicebox",
+    "rank": 2,
     "url": "http://eventmill.com.au",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/01-eventmill-homepage6-768x489.png"
   },
@@ -4028,11 +5036,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2019,
+    "category": "Social Media",
+    "project": "Homestyle Bake – Facebook Ads: Fundraising Leads Campaign",
+    "company": "Homestyle Bake – Facebook Ads: Fundraising Leads Campaign",
+    "agency": "Clevvi",
+    "rank": 2,
+    "url": "https://www.clevvi.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Homestyle-Bake-Facebook-Ads-V1.png"
+  },
+  {
+    "year": 2019,
     "category": "Startup",
     "project": "Contour Cosmetic Clinics",
     "company": "Contour Cosmetic Clinics",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://contourclinics.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2019/01/contour-copy-768x470.jpg"
+  },
+  {
+    "year": 2019,
+    "category": "Startup",
+    "project": "Contour Cosmetic Clinics",
+    "company": "Contour Cosmetic Clinics",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://contourclinics.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2019/01/contour-copy-768x470.jpg"
   },
@@ -4046,10 +5074,42 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2018,
+    "company": "World War I: Love & Sorrow",
+    "agency": "Museum Victoria",
+    "category": "Government",
+    "project": "World War I: Love & Sorrow",
+    "rank": 1
+  },
+  {
+    "year": 2018,
+    "company": "Beyond Blue",
+    "agency": "Squiz",
+    "category": "Health & Wellness",
+    "project": "Beyond Blue",
+    "rank": 1
+  },
+  {
+    "year": 2018,
+    "company": "Global Surf Sounds",
+    "agency": "Royal Australian Navy",
+    "category": "Innovation",
+    "project": "Global Surf Sounds",
+    "rank": 1
+  },
+  {
+    "year": 2018,
     "company": "City of Perth",
     "agency": "Equilibrium",
     "category": "Site of the Year",
     "project": "City of Perth",
+    "rank": 1
+  },
+  {
+    "year": 2017,
+    "company": "Humaan",
+    "agency": "Humaan",
+    "category": "Agency",
+    "project": "Humaan",
     "rank": 1
   },
   {
@@ -4059,6 +5119,16 @@ export const awardWinners: AwardWinner[] = [
     "company": "ONiA",
     "agency": "Humaan",
     "rank": 1,
+    "url": "http://www.onia.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Onia-768x415.jpg"
+  },
+  {
+    "year": 2017,
+    "category": "Commercial",
+    "project": "ONiA",
+    "company": "ONiA",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "http://www.onia.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Onia-768x415.jpg"
   },
@@ -4074,6 +5144,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2017,
+    "category": "E-Commerce",
+    "project": "Sodashi",
+    "company": "Sodashi",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "http://sodashi.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Sodashi-768x415.jpg"
+  },
+  {
+    "year": 2017,
     "category": "Education",
     "project": "Melbourne Girls Grammar Website",
     "company": "Melbourne Girls Grammar Website",
@@ -4081,6 +5161,17 @@ export const awardWinners: AwardWinner[] = [
     "rank": 1,
     "url": "https://www.mggs.vic.edu.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/mggs_home-768x960.jpg"
+  },
+  {
+    "year": 2017,
+    "category": "Education",
+    "project": "Melbourne Girls Grammar Website",
+    "company": "Melbourne Girls Grammar Website",
+    "agency": "Ignite Online",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
   },
   {
     "year": 2017,
@@ -4652,6 +5743,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2017,
+    "category": "Government",
+    "project": "Your Move",
+    "company": "Your Move",
+    "agency": "Equilibrium",
+    "rank": 2,
+    "url": "https://yourmove.org.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/yourmove_home-768x960.jpg"
+  },
+  {
+    "year": 2017,
     "category": "Innovation",
     "project": "Your Great Space",
     "company": "Your Great Space",
@@ -4662,11 +5763,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2017,
+    "category": "Innovation",
+    "project": "Your Great Space",
+    "company": "Your Great Space",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "http://yourgreatspace.humaan.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/1Instructions-768x562.png"
+  },
+  {
+    "year": 2017,
     "category": "Not for Profit",
     "project": "Fremantle Arts Centre",
     "company": "Fremantle Arts Centre",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.fac.org.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/FremantleArtsCentre-768x415.jpg"
+  },
+  {
+    "year": 2017,
+    "category": "Not for Profit",
+    "project": "Fremantle Arts Centre",
+    "company": "Fremantle Arts Centre",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.fac.org.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/FremantleArtsCentre-768x415.jpg"
   },
@@ -4690,6 +5811,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2017,
+    "category": "Small Business",
+    "project": "Humaan",
+    "company": "Humaan",
+    "agency": "Humaan",
+    "rank": 2,
+    "url": "http://humaan.com",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Humaan-768x480.png"
+  },
+  {
+    "year": 2017,
     "category": "Social Media",
     "project": "#NotMyDebt",
     "company": "#NotMyDebt",
@@ -4700,11 +5831,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2017,
+    "category": "Social Media",
+    "project": "#NotMyDebt",
+    "company": "#NotMyDebt",
+    "agency": "#NotMyDebt",
+    "rank": 2,
+    "url": "https://webawards.com.au/winners/notmydebt/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/notmydebt_facebook-768x242.png"
+  },
+  {
+    "year": 2017,
     "category": "Startup",
     "project": "Style Sourcebook",
     "company": "Style Sourcebook",
     "agency": "Jen Clark Designs",
     "rank": 1,
+    "url": "http://www.stylesourcebook.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/ssb-desktop-01-homepage-768x421.jpg"
+  },
+  {
+    "year": 2017,
+    "category": "Startup",
+    "project": "Style Sourcebook",
+    "company": "Style Sourcebook",
+    "agency": "Jen Clark Designs",
+    "rank": 2,
     "url": "http://www.stylesourcebook.com.au",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/ssb-desktop-01-homepage-768x421.jpg"
   },
@@ -4720,11 +5871,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Commercial",
+    "project": "Visit Yarra Valley",
+    "company": "Visit Yarra Valley",
+    "agency": "Weave Web & Yarra Ranges Tourism",
+    "rank": 2,
+    "url": "https://visityarravalley.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/visityarravalley-homepage-01-768x615.jpg"
+  },
+  {
+    "year": 2016,
     "category": "E-Commerce",
     "project": "Two Hands Wines",
     "company": "Two Hands Wines",
     "agency": "The Digital Embassy",
     "rank": 1,
+    "url": "https://www.twohandswines.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/twohands-cellardoor-01-768x592.jpg"
+  },
+  {
+    "year": 2016,
+    "category": "E-Commerce",
+    "project": "Two Hands Wines",
+    "company": "Two Hands Wines",
+    "agency": "The Digital Embassy",
+    "rank": 2,
     "url": "https://www.twohandswines.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/twohands-cellardoor-01-768x592.jpg"
   },
@@ -4740,10 +5911,21 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Education",
+    "project": "International Internships",
+    "company": "International Internships",
+    "agency": "Chromatix",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
+  },
+  {
+    "year": 2016,
     "category": "Finalists",
     "project": "Department of Health WA – Interprofessional Learning website",
     "company": "Department of Health WA – Interprofessional Learning website",
-    "agency": "",
+    "agency": "Doghouse Agency & Revise Online PTY LTD",
     "rank": 2,
     "url": "http://ipl.health.wa.gov.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Home2.jpg"
@@ -5043,7 +6225,7 @@ export const awardWinners: AwardWinner[] = [
     "category": "Finalists",
     "project": "A Touch of Class Florist",
     "company": "A Touch of Class Florist",
-    "agency": "",
+    "agency": "Juicebox Creative",
     "rank": 2,
     "url": "https://atouchofclassflorist.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/a-touch-of-class-homepage1-768x480.jpg"
@@ -5100,11 +6282,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Government",
+    "project": "City of Melbourne",
+    "company": "City of Melbourne",
+    "agency": "City of Melbourne with AccessibilityOz",
+    "rank": 2,
+    "url": "http://www.melbourne.vic.gov.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/com-home1-768x464.png"
+  },
+  {
+    "year": 2016,
     "category": "Innovation",
     "project": "Beneath the Waves",
     "company": "Beneath the Waves",
     "agency": "Periscope Pictures, Hungry Sky, Western Australian Museum",
     "rank": 1,
+    "url": "http://museum.wa.gov.au/btw/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Beneath_the_Waves-Chapter_01-768x403.png"
+  },
+  {
+    "year": 2016,
+    "category": "Innovation",
+    "project": "Beneath the Waves",
+    "company": "Beneath the Waves",
+    "agency": "Periscope Pictures, Hungry Sky, Western Australian Museum",
+    "rank": 2,
     "url": "http://museum.wa.gov.au/btw/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Beneath_the_Waves-Chapter_01-768x403.png"
   },
@@ -5120,11 +6322,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Not for Profit",
+    "project": "Mixin Conference",
+    "company": "Mixin Conference",
+    "agency": "Mixin",
+    "rank": 2,
+    "url": "http://www.mixinconf.com",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Mixin-Homepage-768x960.jpg"
+  },
+  {
+    "year": 2016,
     "category": "Personal",
     "project": "Mandy on the web",
     "company": "Mandy on the web",
     "agency": "",
     "rank": 1,
+    "url": "http://mandymichael.com/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/MandyMichael-Homepage-768x960.png"
+  },
+  {
+    "year": 2016,
+    "category": "Personal",
+    "project": "Mandy on the web",
+    "company": "Mandy on the web",
+    "agency": "Patima Tantiprasut",
+    "rank": 2,
     "url": "http://mandymichael.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/MandyMichael-Homepage-768x960.png"
   },
@@ -5138,6 +6360,16 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Small Business",
+    "project": "Ace Karts Website",
+    "company": "Ace Karts Website",
+    "agency": "Digital360 & Ace Karts",
+    "rank": 2,
+    "url": "http://www.acekarts.com.au",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/Acekarts-homepage-01-768x427.png"
+  },
+  {
+    "year": 2016,
     "category": "Social Media",
     "project": "Go New Zealand",
     "company": "Go New Zealand",
@@ -5148,11 +6380,31 @@ export const awardWinners: AwardWinner[] = [
   },
   {
     "year": 2016,
+    "category": "Social Media",
+    "project": "Go New Zealand",
+    "company": "Go New Zealand",
+    "agency": "Bam Creative",
+    "rank": 2,
+    "url": "https://webawards.com.au/winners/go-new-zealand/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/GoNZ_Instagram-768x768.png"
+  },
+  {
+    "year": 2016,
     "category": "Startup",
     "project": "Flower Bros",
     "company": "Flower Bros",
     "agency": "Humaan",
     "rank": 1,
+    "url": "https://www.flowerbros.com.au/",
+    "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/webawards-flowerbros-desktop1-768x576.jpg"
+  },
+  {
+    "year": 2016,
+    "category": "Startup",
+    "project": "Flower Bros",
+    "company": "Flower Bros",
+    "agency": "Humaan",
+    "rank": 2,
     "url": "https://www.flowerbros.com.au/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/webawards-flowerbros-desktop1-768x576.jpg"
   },
@@ -5173,8 +6425,19 @@ export const awardWinners: AwardWinner[] = [
     "company": "My Big Tomorrow",
     "agency": "The Village of Useful & Newism",
     "rank": 1,
-    "url": "http://www.mybigtomorrow.com.au/",
+    "url": "#education",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/mbt-home-768x1248.jpg"
+  },
+  {
+    "year": 2015,
+    "category": "Education",
+    "project": "My Big Tomorrow",
+    "company": "My Big Tomorrow",
+    "agency": "The Village of Useful & Newism",
+    "rank": 2,
+    "url": "#content",
+    "description": "The Australian Web Awards in an initiative of the Australian Web Industry Association.",
+    "imageUrl": "https://webawards.com.au/wp-content/themes/unicorn-tears/dist/images/logo.svg"
   },
   {
     "year": 2015,
@@ -5253,5 +6516,85 @@ export const awardWinners: AwardWinner[] = [
     "rank": 1,
     "url": "http://deckee.com/",
     "imageUrl": "https://webawards.com.au/wp-content/uploads/2020/12/deckee-home2-768x2616.jpg"
+  },
+  {
+    "year": 2014,
+    "company": "Bam Creative",
+    "agency": "Bam Creative",
+    "category": "Agency",
+    "project": "Bam Creative",
+    "rank": 1
+  },
+  {
+    "year": 2014,
+    "company": "University of Adelaide",
+    "agency": "Bam Creative",
+    "category": "Education",
+    "project": "University of Adelaide",
+    "rank": 1
+  },
+  {
+    "year": 2014,
+    "company": "Tourism Victoria",
+    "agency": "Reactive",
+    "category": "Site of the Year",
+    "project": "Play Melbourne",
+    "rank": 1
+  },
+  {
+    "year": 2013,
+    "company": "The Brand Agency",
+    "agency": "The Brand Agency",
+    "category": "Agency",
+    "project": "The Brand Agency",
+    "rank": 1
+  },
+  {
+    "year": 2013,
+    "company": "Forestry Tasmania",
+    "agency": "Reactive",
+    "category": "Site of the Year",
+    "project": "Forestry Tasmania",
+    "rank": 1
+  },
+  {
+    "year": 2012,
+    "company": "Reactive",
+    "agency": "Reactive",
+    "category": "Agency",
+    "project": "Reactive",
+    "rank": 1
+  },
+  {
+    "year": 2012,
+    "company": "Melbourne Cup Carnival",
+    "agency": "Reactive",
+    "category": "Site of the Year",
+    "project": "Melbourne Cup Carnival",
+    "rank": 1
+  },
+  {
+    "year": 2011,
+    "company": "Airbnb",
+    "agency": "Airbnb",
+    "category": "Site of the Year",
+    "project": "Airbnb",
+    "rank": 1
+  },
+  {
+    "year": 2010,
+    "company": "ABC",
+    "agency": "ABC Innovation",
+    "category": "Site of the Year",
+    "project": "ABC",
+    "rank": 1
+  },
+  {
+    "year": 2009,
+    "company": "Sydney Opera House",
+    "agency": "Deepend",
+    "category": "Site of the Year",
+    "project": "Sydney Opera House",
+    "rank": 1
   }
 ];

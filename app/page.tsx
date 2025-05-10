@@ -248,19 +248,19 @@ export default function HomePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
               </div>
               <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Unique Agencies
+                Digital Agencies
               </h3>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               {stats.uniqueAgencies}
             </p>
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              Design agencies represented
+              Creative partners involved
             </p>
           </div>
           <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-white to-blue-50 p-5 shadow-md transition-transform hover:scale-105 dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
@@ -277,18 +277,14 @@ export default function HomePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
               </div>
-              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Years Covered
-              </h3>
+              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Years Active</h3>
             </div>
             <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stats.yearRange}</p>
-            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              {stats.totalYears} years of excellence
-            </p>
+            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">History of excellence</p>
           </div>
         </div>
 
