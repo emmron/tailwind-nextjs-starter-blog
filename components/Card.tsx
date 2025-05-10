@@ -1,3 +1,5 @@
+'use client'
+
 import Image from './Image'
 import Link from './Link'
 import { motion } from 'framer-motion'
