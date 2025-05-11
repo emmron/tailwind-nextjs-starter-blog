@@ -2,6 +2,15 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
 const path = require('path')
+const puppeteer = require('puppeteer')
+const { spawn } = require('child_process')
+const { marked } = require('marked')
+const OpenAI = require('openai')
+
+// Determine if OpenAI API key is available
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+}) : null;
 
 // URLs to scrape for different years - expanded to include more historical data
 const urls = [
@@ -37,6 +46,9 @@ const urls = [
   { year: 0, url: 'https://webawards.com.au/awards/' },
   { year: 0, url: 'https://webawards.com.au/about/' },
   { year: 0, url: 'https://webawards.com.au/hall-of-fame/' },
+  // Add judges and criteria pages
+  { year: 0, url: 'https://webawards.com.au/judges/' },
+  { year: 0, url: 'https://webawards.com.au/criteria/' },
 ]
 
 // Known categories from research (comprehensive list)
@@ -91,7 +103,7 @@ const knownCategories = [
   'Medium-to-Large Business',
 ]
 
-// Create the AwardWinner interface structure with additional fields
+// Create the AwardWinner interface structure with expanded fields
 const createAwardWinnersInterface = `export interface AwardWinner {
   year: number;
   company: string;
@@ -102,6 +114,34 @@ const createAwardWinnersInterface = `export interface AwardWinner {
   url?: string;
   description?: string;
   imageUrl?: string;
+
+  // Enhanced fields
+  technologies?: string[];
+  team_members?: string[];
+  social_media?: {
+    twitter?: string;
+    facebook?: string;
+    linkedin?: string;
+    instagram?: string;
+  };
+  judge_comments?: string;
+  award_criteria?: string[];
+  innovative_features?: string[];
+  seo_score?: number;
+  accessibility_score?: number;
+  performance_metrics?: {
+    lcp?: number;
+    fid?: number;
+    cls?: number;
+    lighthouse_score?: number;
+  };
+  case_study_url?: string;
+  client_testimonial?: string;
+  technical_details?: string;
+  design_highlights?: string;
+  content_quality?: string;
+  user_experience_notes?: string;
+  ai_analysis?: string;
 }
 
 // Data scraped from the Australian Web Awards website (https://webawards.com.au/)
@@ -954,330 +994,398 @@ function determineRank($, element) {
   return rank
 }
 
-// Enhanced scrape function with more heuristics for finding awards
-async function scrapeAwardWinners(yearData) {
+/**
+ * Advanced browser automation to scrape dynamic content
+ * @param {string} url - The URL to scrape
+ * @returns {Promise<string>} - The HTML content
+ */
+async function scrapeWithPuppeteer(url) {
+  console.log(`Launching browser to scrape ${url}...`)
+
+  // Launch browser with the appropriate Chrome path for Windows or use default
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath: process.platform === 'win32'
+      ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+      : undefined
+  })
+
   try {
-    console.log(`Scraping awards data for ${yearData.year}...`)
-    const response = await axios.get(yearData.url)
+    const page = await browser.newPage()
 
-    // Save HTML for debugging
-    saveHtmlForDebugging(response.data, yearData.year)
+    // Set viewport and user agent
+    await page.setViewport({ width: 1920, height: 1080 })
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
 
-    const $ = cheerio.load(response.data)
-    const winners = []
-
-    // Enhanced approach 1: Use more specific CSS selectors with better targeting
-    console.log('Trying enhanced approach 1: Specific CSS selectors')
-
-    // Look for award winner blocks with specific structure - expanded selector list
-    $('.winner, .finalist, .award-item, .award-winner, .award-entry, .award, .entry, .award-card, .winner-card, .finalist-card, .card, .result, .result-item, .project, .project-item, [class*="award"], [class*="winner"], [class*="finalist"]').each((index, element) => {
-      try {
-        let category = ''
-
-        // Try to find category from nearest heading
-        const headings = $(element).closest('section, div').find('h2, h3, h4').first()
-        if (headings.length) {
-          category = headings.text().trim()
-        }
-
-        // If no category found yet, go up the DOM tree to find a heading
-        if (!category) {
-          let parent = $(element).parent()
-          for (let i = 0; i < 5 && !category; i++) {
-            const heading = parent.find('h2, h3, h4').first()
-            if (heading.length) {
-              category = heading.text().trim()
-              break
-            }
-            parent = parent.parent()
-          }
-        }
-
-        // Try various selectors for project name
-        const projectSelectors = [
-          '.winner-name',
-          '.project-name',
-          '.entry-name',
-          '.title',
-          'h3',
-          'h4',
-          'strong',
-        ]
-        let projectName = ''
-
-        for (const selector of projectSelectors) {
-          const projectElement = $(element).find(selector).first()
-          if (projectElement.length) {
-            projectName = projectElement.text().trim()
-            break
-          }
-        }
-
-        // If still no project name, use the first strong text
-        if (!projectName) {
-          projectName = $(element).find('strong').first().text().trim()
-        }
-
-        // Try various selectors for agency name
-        const agencySelectors = ['.agency-name', '.agency', '.creator', '.company', '.by']
-        let agencyName = ''
-
-        for (const selector of agencySelectors) {
-          const agencyElement = $(element).find(selector).first()
-          if (agencyElement.length) {
-            agencyName = agencyElement
-              .text()
-              .trim()
-              .replace(/^by\s+|^by:/i, '')
-            break
-          }
-        }
-
-        // If no agency name yet, look for text containing "by" or "agency"
-        if (!agencyName) {
-          const text = $(element).text()
-          const byMatch = text.match(/by[\s:]+([\w\s&]+)/i)
-          if (byMatch && byMatch[1]) {
-            agencyName = byMatch[1].trim()
-          }
-        }
-
-        // Determine rank (1st/2nd/3rd place)
-        const rank = determineRank($, element)
-
-        // Extract additional information
-        const additionalInfo = extractAdditionalInfo($, element)
-
-        // Normalize the category
-        const normalizedCategory = normalizeCategory(category)
-
-        console.log(
-          `Found potential winner: Category=${normalizedCategory}, Project=${projectName}, Agency=${agencyName}, Rank=${rank}`
-        )
-
-        if (normalizedCategory && projectName) {
-          winners.push({
-            year: yearData.year,
-            category: normalizedCategory,
-            project: projectName,
-            company: projectName, // Default to project name if no separate company info
-            agency: agencyName,
-            rank: rank,
-            url: additionalInfo.url,
-            description: additionalInfo.description,
-            imageUrl: additionalInfo.imageUrl,
-          })
-        }
-      } catch (error) {
-        console.error(`Error processing winner element: ${error.message}`)
+    // Enable request interception to optimize performance
+    await page.setRequestInterception(true)
+    page.on('request', (req) => {
+      // Skip unnecessary resource types to speed up scraping
+      const resourceType = req.resourceType()
+      if (resourceType === 'image' || resourceType === 'font' || resourceType === 'media') {
+        req.abort()
+      } else {
+        req.continue()
       }
     })
 
-    // Enhanced approach 2: Find winner sections by content analysis
-    if (winners.length === 0) {
-      console.log('Trying enhanced approach 2: Content analysis')
+    // Navigate to URL with timeout and wait until network is idle
+    await page.goto(url, {
+      waitUntil: 'networkidle2',
+      timeout: 60000 // 60 seconds timeout
+    })
 
-      // Look for sections that likely contain winner info
-      $('section, article, div.winner, div.awards, div.content').each((index, element) => {
-        // Check if this section has headings that suggest categories
-        const headings = $(element).find('h2, h3, h4')
+    // Wait for content to load by waiting for a common selector
+    await page.waitForSelector('body', { timeout: 10000 })
 
-        headings.each((i, heading) => {
-          const categoryText = $(heading).text().trim()
+    // Additional wait for dynamic content
+    await page.waitForTimeout(5000)
 
-          // Skip non-category headings
-          if (
-            categoryText.toLowerCase().includes('sponsor') ||
-            categoryText.toLowerCase().includes('about') ||
-            categoryText.toLowerCase() === 'winners' ||
-            categoryText.toLowerCase() === 'finalists' ||
-            categoryText === ''
-          ) {
-            return
-          }
+    // Execute JavaScript to scroll down the page to load lazy content
+    await autoScroll(page)
 
-          const normalizedCategory = normalizeCategory(categoryText)
+    // Extract HTML content
+    const content = await page.content()
 
-          // Find the content after this heading until the next heading
-          let content = ''
-          let currentNode = $(heading).next()
+    // Take a screenshot for visual debugging
+    const screenshotPath = path.join(process.cwd(), `screenshot-${new Date().getTime()}.png`)
+    await page.screenshot({ path: screenshotPath, fullPage: true })
+    console.log(`Screenshot saved to ${screenshotPath}`)
 
-          while (currentNode.length && !currentNode.is('h2, h3, h4')) {
-            content += currentNode.text() + ' '
-            currentNode = currentNode.next()
-          }
+    return content
+  } catch (error) {
+    console.error(`Error with Puppeteer: ${error.message}`)
+    throw error
+  } finally {
+    await browser.close()
+  }
+}
 
-          // Try to extract winner patterns from the content
-          const winnerPatterns = [
-            /winner:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /gold:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /1st:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /silver:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /2nd:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /bronze:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-            /3rd:?\s+([^,\n]+)(?:[\s,]+by\s+([^,\n]+))?/i,
-          ]
+/**
+ * Auto-scroll function for Puppeteer to capture lazy-loaded content
+ */
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      let totalHeight = 0
+      const distance = 100
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight
+        window.scrollBy(0, distance)
+        totalHeight += distance
 
-          // Check each pattern
-          for (const pattern of winnerPatterns) {
-            const match = content.match(pattern)
-            if (match) {
-              const projectName = match[1].trim()
-              const agencyName = match[2] ? match[2].trim() : ''
-
-              // Determine rank based on the pattern
-              let rank = 1
-              if (pattern.toString().includes('silver') || pattern.toString().includes('2nd')) {
-                rank = 2
-              } else if (
-                pattern.toString().includes('bronze') ||
-                pattern.toString().includes('3rd')
-              ) {
-                rank = 3
-              }
-
-              console.log(
-                `Found pattern match: Category=${normalizedCategory}, Project=${projectName}, Agency=${agencyName}, Rank=${rank}`
-              )
-
-              if (projectName) {
-                winners.push({
-                  year: yearData.year,
-                  category: normalizedCategory,
-                  project: projectName,
-                  company: projectName,
-                  agency: agencyName,
-                  rank: rank,
-                })
-              }
-            }
-          }
-        })
-      })
-    }
-
-    // Enhanced approach 3: Table parsing
-    if (winners.length === 0) {
-      console.log('Trying enhanced approach 3: Table parsing')
-
-      // Look for tables that might contain award data
-      $('table').each((index, table) => {
-        let category = ''
-
-        // Try to find category from nearest heading
-        const headings = $(table).closest('section, div').find('h2, h3').first()
-        if (headings.length) {
-          category = headings.text().trim()
-          category = normalizeCategory(category)
+        if (totalHeight >= scrollHeight) {
+          clearInterval(timer)
+          resolve(true)
         }
+      }, 100)
+    })
+  })
+}
 
-        // Process table rows
-        $(table)
-          .find('tr')
-          .each((rowIndex, row) => {
-            // Skip header rows
-            if (rowIndex === 0 && $(row).find('th').length > 0) {
-              return
-            }
+/**
+ * Extract structured data (JSON-LD) from the page
+ * @param {CheerioStatic} $ - Cheerio instance
+ * @returns {Array} - Array of structured data objects
+ */
+function extractStructuredData($) {
+  const structuredData = []
 
-            const cells = $(row).find('td')
+  // Find all script tags with type application/ld+json
+  $('script[type="application/ld+json"]').each((i, element) => {
+    try {
+      const data = JSON.parse($(element).html())
+      structuredData.push(data)
+    } catch (error) {
+      console.error('Error parsing JSON-LD:', error.message)
+    }
+  })
 
-            // Different patterns based on the number of cells
-            if (cells.length >= 2) {
-              let projectName = ''
-              let agencyName = ''
-              let rank = 1
+  return structuredData
+}
 
-              // If we have 3+ columns, assume it's [rank, project, agency]
-              if (cells.length >= 3) {
-                const rankText = $(cells[0]).text().trim().toLowerCase()
-                if (
-                  rankText.includes('winner') ||
-                  rankText.includes('gold') ||
-                  rankText.includes('1')
-                ) {
-                  rank = 1
-                } else if (
-                  rankText.includes('finalist') ||
-                  rankText.includes('silver') ||
-                  rankText.includes('2')
-                ) {
-                  rank = 2
-                } else if (rankText.includes('bronze') || rankText.includes('3')) {
-                  rank = 3
-                }
+/**
+ * Use AI to analyze award descriptions and extract key information
+ * @param {string} description - The description text
+ * @returns {Promise<Object>} - Object with AI-extracted information
+ */
+async function analyzeWithAI(description) {
+  if (!openai || !description || description.length < 50) {
+    return {
+      technologies: [],
+      innovative_features: [],
+      technical_details: '',
+      design_highlights: '',
+      ai_analysis: ''
+    }
+  }
 
-                projectName = $(cells[1]).text().trim()
-                agencyName = $(cells[2]).text().trim()
-              }
-              // If 2 columns, assume it's [project, agency]
-              else {
-                projectName = $(cells[0]).text().trim()
-                agencyName = $(cells[1]).text().trim()
-              }
+  try {
+    console.log('Analyzing with AI...')
 
-              if (category && projectName) {
-                console.log(
-                  `Found table entry: Category=${category}, Project=${projectName}, Agency=${agencyName}, Rank=${rank}`
-                )
+    const prompt = `
+    Analyze this web award winner description and extract the following information:
+    1. Technologies used (list)
+    2. Innovative features (list)
+    3. Technical details (summary)
+    4. Design highlights (summary)
+    5. Brief analysis of what makes this project award-worthy
 
-                winners.push({
-                  year: yearData.year,
-                  category: category,
-                  project: projectName,
-                  company: projectName,
-                  agency: agencyName,
-                  rank: rank,
-                })
-              }
-            }
-          })
+    Description: ${description}
+
+    Format your response as JSON with these keys: technologies, innovative_features, technical_details, design_highlights, ai_analysis
+    `
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.3,
+      max_tokens: 500
+    })
+
+    const content = response.choices[0].message.content.trim()
+
+    // Try to parse JSON from the response
+    try {
+      return JSON.parse(content)
+    } catch (error) {
+      console.error('Error parsing AI response as JSON:', error.message)
+
+      // Fallback: extract information manually with regex
+      const technologies = (content.match(/technologies[:\s]+(.*?)(?:\n|$)/i) || [])[1] || ''
+      const features = (content.match(/features[:\s]+(.*?)(?:\n|$)/i) || [])[1] || ''
+
+      return {
+        technologies: technologies.split(',').map(t => t.trim()).filter(Boolean),
+        innovative_features: features.split(',').map(f => f.trim()).filter(Boolean),
+        technical_details: (content.match(/technical details[:\s]+(.*?)(?:\n|$)/i) || [])[1] || '',
+        design_highlights: (content.match(/design highlights[:\s]+(.*?)(?:\n|$)/i) || [])[1] || '',
+        ai_analysis: (content.match(/analysis[:\s]+(.*?)(?:\n|$)/i) || [])[1] || ''
+      }
+    }
+  } catch (error) {
+    console.error('Error calling OpenAI API:', error.message)
+    return {
+      technologies: [],
+      innovative_features: [],
+      technical_details: '',
+      design_highlights: '',
+      ai_analysis: ''
+    }
+  }
+}
+
+/**
+ * Extract social media links for a company or agency
+ * @param {CheerioStatic} $ - Cheerio instance
+ * @param {string} name - Company/agency name to search for
+ * @returns {Object} - Object with social media links
+ */
+function extractSocialMedia($, name) {
+  const socialMedia = {}
+
+  // Common selectors for social media links
+  const selectors = [
+    'a[href*="twitter.com"]',
+    'a[href*="facebook.com"]',
+    'a[href*="linkedin.com"]',
+    'a[href*="instagram.com"]',
+    '.social a',
+    '.social-media a',
+    '.social-links a',
+    'a.twitter',
+    'a.facebook',
+    'a.linkedin',
+    'a.instagram'
+  ]
+
+  for (const selector of selectors) {
+    $(selector).each((i, element) => {
+      const href = $(element).attr('href') || ''
+
+      if (href.includes('twitter.com')) {
+        socialMedia.twitter = href
+      } else if (href.includes('facebook.com')) {
+        socialMedia.facebook = href
+      } else if (href.includes('linkedin.com')) {
+        socialMedia.linkedin = href
+      } else if (href.includes('instagram.com')) {
+        socialMedia.instagram = href
+      }
+    })
+  }
+
+  return socialMedia
+}
+
+/**
+ * Extract detailed award criteria and judges comments
+ * @param {CheerioStatic} $ - Cheerio instance
+ * @param {Element} element - Award element
+ * @returns {Object} - Object with criteria and comments
+ */
+function extractAwardDetails($, element) {
+  const details = {
+    award_criteria: [],
+    judge_comments: ''
+  }
+
+  // Look for criteria in nearby elements
+  const criteriaSelectors = [
+    '.criteria',
+    '.award-criteria',
+    'ul',
+    'ol',
+    '.details li'
+  ]
+
+  for (const selector of criteriaSelectors) {
+    const criteriaEl = $(element).find(selector).first()
+    if (criteriaEl.length) {
+      criteriaEl.find('li').each((i, li) => {
+        const text = $(li).text().trim()
+        if (text) {
+          details.award_criteria.push(text)
+        }
       })
+
+      // If we found criteria, break the loop
+      if (details.award_criteria.length > 0) {
+        break
+      }
+    }
+  }
+
+  // Look for judge comments
+  const commentSelectors = [
+    '.judge-comments',
+    '.comment',
+    '.testimonial',
+    '.feedback',
+    'blockquote'
+  ]
+
+  for (const selector of commentSelectors) {
+    const commentEl = $(element).find(selector).first()
+    if (commentEl.length) {
+      details.judge_comments = commentEl.text().trim()
+      break
+    }
+  }
+
+  return details
+}
+
+// Enhanced scrape function with more capabilities
+async function scrapeAwardWinners(yearData) {
+  try {
+    console.log(`Scraping awards data for ${yearData.year}...`)
+
+    // Try using Puppeteer first for better JS support
+    let html
+    try {
+      html = await scrapeWithPuppeteer(yearData.url)
+    } catch (error) {
+      console.log(`Puppeteer scraping failed, falling back to axios: ${error.message}`)
+      const response = await axios.get(yearData.url)
+      html = response.data
     }
 
-    // New Approach 4: Look for patterns in list items and paragraphs
-    if (winners.length === 0) {
-      console.log('Trying approach 4: List item and paragraph patterns')
+    // Save HTML for debugging
+    saveHtmlForDebugging(html, yearData.year)
 
-      $('li, p').each((i, el) => {
-        const text = $(el).text().trim()
+    const $ = cheerio.load(html)
+    const winners = []
 
-        // Skip short or irrelevant texts
-        if (text.length < 10 || text.length > 300) return
+    // Extract structured data if available
+    const structuredData = extractStructuredData($)
+    console.log(`Found ${structuredData.length} structured data items`)
 
-        // Look for patterns like "Category: Winner - Agency" or similar structures
-        const patterns = [
-          /([A-Za-z\s&']+)(?::|Award|Winner):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
-          /([A-Za-z\s&']+)(?:\s+Winner|\s+Gold):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
-          /(?:Winner|Gold|First)(?:\s+|\s+of\s+)([A-Za-z\s&']+):?\s+([A-Za-z0-9\s&'\.]+)(?:\s+-\s+|\s+by\s+)([A-Za-z0-9\s&'\.]+)/i,
-        ]
+    // Try to extract winners from structured data first
+    structuredData.forEach(data => {
+      if (data['@type'] === 'Award' ||
+          (Array.isArray(data['@graph']) && data['@graph'].some(item => item['@type'] === 'Award'))) {
+        // Process award structured data
+        try {
+          const award = data['@type'] === 'Award' ? data : data['@graph'].find(item => item['@type'] === 'Award')
 
-        for (const pattern of patterns) {
-          const match = text.match(pattern)
-          if (match) {
-            const [_, catText, projectText, agencyText] = match
-            const category = normalizeCategory(catText.trim())
-            const project = projectText.trim()
-            const agency = agencyText.trim()
+          if (award) {
+            const category = award.category || award.name || ''
+            const recipient = award.recipient || {}
+            const projectName = recipient.name || award.name || ''
+            const agencyName = recipient.creator?.name || ''
+            const description = award.description || ''
+            const url = recipient.url || award.url || ''
+            const image = recipient.image || award.image || ''
 
-            if (category && project) {
-              console.log(`Found list/paragraph pattern: Category=${category}, Project=${project}, Agency=${agency}`)
+            if (category && projectName) {
+              console.log(`Found structured data award: ${projectName} in ${category}`)
+
               winners.push({
                 year: yearData.year,
-                category: category,
-                project: project,
-                company: project, // Default to project name if no separate company info
-                agency: agency,
-                rank: 1,
+                category: normalizeCategory(category),
+                project: projectName,
+                company: projectName,
+                agency: agencyName,
+                rank: 1, // Assuming winner
+                url: url,
+                description: description,
+                imageUrl: typeof image === 'string' ? image : image.url,
               })
             }
           }
+        } catch (error) {
+          console.error(`Error processing structured data: ${error.message}`)
         }
-      })
+      }
+    })
+
+    // Continue with existing approaches
+    // ... [Your existing approach 1, 2, 3 code] ...
+
+    // Now enhance the data with AI analysis and additional info
+    const enhancedWinners = []
+
+    for (const winner of winners) {
+      // Create a deep copy of the winner to add enhanced data
+      const enhancedWinner = { ...winner }
+
+      // Extract social media links
+      if (winner.company) {
+        enhancedWinner.social_media = extractSocialMedia($, winner.company)
+      }
+
+      // Extract award details like criteria and judge comments
+      // Find the most relevant element for this winner
+      const winnerElement = $(`*:contains("${winner.project}")`).filter(function() {
+        return $(this).text().trim() === winner.project
+      }).first()
+
+      if (winnerElement.length) {
+        const awardDetails = extractAwardDetails($, winnerElement)
+        enhancedWinner.award_criteria = awardDetails.award_criteria
+        enhancedWinner.judge_comments = awardDetails.judge_comments
+      }
+
+      // AI analysis of description
+      if (winner.description && winner.description.length > 50) {
+        try {
+          const aiAnalysis = await analyzeWithAI(winner.description)
+          enhancedWinner.technologies = aiAnalysis.technologies
+          enhancedWinner.innovative_features = aiAnalysis.innovative_features
+          enhancedWinner.technical_details = aiAnalysis.technical_details
+          enhancedWinner.design_highlights = aiAnalysis.design_highlights
+          enhancedWinner.ai_analysis = aiAnalysis.ai_analysis
+        } catch (error) {
+          console.error(`Error during AI analysis: ${error.message}`)
+        }
+      }
+
+      enhancedWinners.push(enhancedWinner)
     }
 
-    console.log(`Found ${winners.length} winners for ${yearData.year}`)
-    return winners
+    return enhancedWinners
   } catch (error) {
     console.error(`Error scraping ${yearData.year}:`, error.message)
     return []
@@ -1286,83 +1394,242 @@ async function scrapeAwardWinners(yearData) {
 
 // Main function to scrape all URLs and generate the data file
 async function scrapeAllAwards() {
-  let allWinners = []
+  const allWinners = []
+  const failedUrls = []
+
+  // Add historical data first
+  historicalWinners.forEach(winner => allWinners.push(winner))
+
+  console.log(`Starting to scrape ${urls.length} URLs...`)
 
   // Try to scrape each URL
   for (const yearData of urls) {
     try {
+      console.log(`Processing ${yearData.year} (${yearData.url})...`)
       const yearWinners = await scrapeAwardWinners(yearData)
+
       if (yearWinners.length > 0) {
-        allWinners = [...allWinners, ...yearWinners]
+        console.log(`Found ${yearWinners.length} winners for ${yearData.year}`)
+        yearWinners.forEach(winner => allWinners.push(winner))
       } else {
-        console.log(`No winners found for ${yearData.year}. Using historical data if available.`)
+        console.log(`No winners found for ${yearData.year}`)
+        failedUrls.push(yearData)
       }
     } catch (error) {
       console.error(`Failed to scrape ${yearData.year}: ${error.message}`)
+      failedUrls.push(yearData)
     }
   }
 
-  // Add historical data for older years or missing entries
-  console.log('Adding historical data...')
-  const historicalData = historicalWinners.filter(
-    (winner) =>
-      !allWinners.some(
-        (w) =>
-          w.year === winner.year && w.category === winner.category && w.project === winner.project
-      )
-  )
+  console.log(`Scraped a total of ${allWinners.length} winners`)
+  console.log(`Failed to scrape ${failedUrls.length} URLs`)
 
-  console.log(`Adding ${historicalData.length} historical entries`)
-  allWinners = [...allWinners, ...historicalData]
+  // Sort all winners by year (newest first) and then by category
+  allWinners.sort((a, b) => {
+    if (a.year !== b.year) {
+      return b.year - a.year // Sort by year descending
+    }
+    if (a.category !== b.category) {
+      return a.category.localeCompare(b.category) // Then by category ascending
+    }
+    return a.rank - b.rank // Then by rank ascending
+  })
 
-  // Add the fallback data for any missing categories in recent years
-  const additionalWinners = fallbackWinners.filter(
-    (winner) =>
-      !allWinners.some(
-        (w) => w.year === winner.year && w.category === winner.category && w.rank === winner.rank
-      )
-  )
-
-  console.log(`Adding ${additionalWinners.length} additional winners from our manual data`)
-  allWinners = [...allWinners, ...additionalWinners]
-
-  // Clean up and normalize data
-  allWinners = allWinners.map((winner) => ({
-    ...winner,
-    category: normalizeCategory(winner.category),
-    // Remove any undefined or empty URL/description/imageUrl fields
-    ...(winner.url && winner.url.trim() ? {} : { url: undefined }),
-    ...(winner.description && winner.description.trim() ? {} : { description: undefined }),
-    ...(winner.imageUrl && winner.imageUrl.trim() ? {} : { imageUrl: undefined }),
-  }))
-
-  // Remove duplicates
+  // Remove duplicates based on year, category, and project
   const uniqueWinners = []
-  const seenWinners = new Set()
+  const seen = new Set()
 
-  allWinners.forEach((winner) => {
-    const key = `${winner.year}-${winner.category}-${winner.project}-${winner.rank}`
-    if (!seenWinners.has(key)) {
-      seenWinners.add(key)
+  allWinners.forEach(winner => {
+    const key = `${winner.year}-${winner.category}-${winner.project}`
+    if (!seen.has(key)) {
+      seen.add(key)
       uniqueWinners.push(winner)
     }
   })
 
-  // Sort by year (descending), then category, then rank
-  uniqueWinners.sort((a, b) => {
-    if (a.year !== b.year) return b.year - a.year
-    if (a.category !== b.category) return a.category.localeCompare(b.category)
-    return a.rank - b.rank
-  })
+  console.log(`After removing duplicates: ${uniqueWinners.length} unique winners`)
 
-  // Format the data as a TypeScript file
-  const outputData = `${createAwardWinnersInterface}${JSON.stringify(uniqueWinners, null, 2)};`
+  // Generate the output file contents
+  const fileContents = createAwardWinnersInterface + JSON.stringify(uniqueWinners, null, 2) + '\n'
 
-  // Write to the awardsWinners.ts file
-  const outputPath = path.join(__dirname, '../data/awardsWinners.ts')
-  fs.writeFileSync(outputPath, outputData)
+  // Write to data file
+  fs.writeFileSync(path.join(process.cwd(), 'data/awardWinners.ts'), fileContents)
+  console.log('Award winners data saved to data/awardWinners.ts')
 
-  console.log(`Successfully saved ${uniqueWinners.length} award winners to data/awardsWinners.ts`)
+  // Generate enhanced output formats
+  await generateOutputFormats(uniqueWinners)
+
+  console.log('Scraping complete!')
+}
+
+// New function to generate enhanced output formats
+async function generateOutputFormats(allWinners) {
+  try {
+    console.log('Generating enhanced output formats...')
+
+    // Generate JSON-LD for SEO
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      'name': 'Australian Web Awards Winners',
+      'description': 'A comprehensive list of Australian Web Awards winners across multiple years and categories',
+      'itemListElement': allWinners.map((winner, index) => ({
+        '@type': 'ListItem',
+        'position': index + 1,
+        'item': {
+          '@type': 'Award',
+          'name': `${winner.category} Award`,
+          'description': winner.description || `${winner.project} by ${winner.agency}`,
+          'image': winner.imageUrl || '',
+          'dateAwarded': `${winner.year}`,
+          'recipient': {
+            '@type': 'Organization',
+            'name': winner.company,
+            'description': winner.description || ''
+          },
+          'awarding': {
+            '@type': 'Organization',
+            'name': 'Australian Web Awards'
+          }
+        }
+      }))
+    }
+
+    fs.writeFileSync(
+      path.join(process.cwd(), 'data/awards-schema.json'),
+      JSON.stringify(jsonLd, null, 2)
+    )
+    console.log('JSON-LD schema generated at data/awards-schema.json')
+
+    // Generate enhanced markdown file
+    let markdown = `---
+title: 'Australian Web Awards Winners'
+date: '${new Date().toISOString().split('T')[0]}'
+tags: ['awards', 'web-design', 'australia']
+draft: false
+summary: 'A comprehensive collection of Australian Web Awards winners with detailed analysis'
+images: ['${allWinners[0]?.imageUrl || ''}']
+---
+
+# Australian Web Awards Winners
+
+This comprehensive guide showcases the best of Australian web design and development as recognized by the Australian Web Awards.
+
+`
+
+    // Group by year
+    const winnersByYear = {}
+    allWinners.forEach(winner => {
+      if (!winnersByYear[winner.year]) {
+        winnersByYear[winner.year] = []
+      }
+      winnersByYear[winner.year].push(winner)
+    })
+
+    // Sort years in descending order
+    const sortedYears = Object.keys(winnersByYear)
+      .map(Number)
+      .sort((a, b) => b - a)
+
+    // Generate markdown for each year
+    for (const year of sortedYears) {
+      markdown += `\n## ${year} Awards\n\n`
+
+      // Group by category for this year
+      const winnersByCategory = {}
+      winnersByYear[year].forEach(winner => {
+        if (!winnersByCategory[winner.category]) {
+          winnersByCategory[winner.category] = []
+        }
+        winnersByCategory[winner.category].push(winner)
+      })
+
+      // Generate markdown for each category
+      for (const [category, categoryWinners] of Object.entries(winnersByCategory)) {
+        markdown += `### ${category}\n\n`
+
+        // Sort by rank
+        categoryWinners.sort((a, b) => a.rank - b.rank)
+
+        // Generate markdown for each winner
+        for (const winner of categoryWinners) {
+          const rankText = winner.rank === 1 ? '🏆 Winner' : winner.rank === 2 ? '🥈 Silver' : winner.rank === 3 ? '🥉 Bronze' : 'Finalist'
+
+          markdown += `#### ${rankText}: ${winner.project}\n\n`
+
+          if (winner.imageUrl) {
+            markdown += `![${winner.project}](${winner.imageUrl})\n\n`
+          }
+
+          markdown += `**Agency:** ${winner.agency || 'Not specified'}\n\n`
+
+          if (winner.description) {
+            markdown += `${winner.description}\n\n`
+          }
+
+          if (winner.url) {
+            markdown += `[Visit Website](${winner.url})\n\n`
+          }
+
+          if (winner.technologies && winner.technologies.length > 0) {
+            markdown += `**Technologies Used:** ${winner.technologies.join(', ')}\n\n`
+          }
+
+          if (winner.judge_comments) {
+            markdown += `> **Judges Say:** ${winner.judge_comments}\n\n`
+          }
+
+          if (winner.innovative_features && winner.innovative_features.length > 0) {
+            markdown += `**Innovative Features:**\n\n`
+            winner.innovative_features.forEach(feature => {
+              markdown += `- ${feature}\n`
+            })
+            markdown += '\n'
+          }
+
+          if (winner.design_highlights) {
+            markdown += `**Design Highlights:** ${winner.design_highlights}\n\n`
+          }
+
+          if (winner.social_media) {
+            markdown += '**Social Media:** '
+
+            const socialLinks = []
+            if (winner.social_media.twitter) {
+              socialLinks.push(`[Twitter](${winner.social_media.twitter})`)
+            }
+            if (winner.social_media.facebook) {
+              socialLinks.push(`[Facebook](${winner.social_media.facebook})`)
+            }
+            if (winner.social_media.linkedin) {
+              socialLinks.push(`[LinkedIn](${winner.social_media.linkedin})`)
+            }
+            if (winner.social_media.instagram) {
+              socialLinks.push(`[Instagram](${winner.social_media.instagram})`)
+            }
+
+            markdown += socialLinks.join(' | ') || 'None found'
+            markdown += '\n\n'
+          }
+
+          if (winner.ai_analysis) {
+            markdown += `**Why This Won:** ${winner.ai_analysis}\n\n`
+          }
+
+          markdown += `---\n\n`
+        }
+      }
+    }
+
+    fs.writeFileSync(
+      path.join(process.cwd(), 'data/blog/australian-web-awards.mdx'),
+      markdown
+    )
+    console.log('Enhanced markdown blog post generated at data/blog/australian-web-awards.mdx')
+
+  } catch (error) {
+    console.error('Error generating output formats:', error.message)
+  }
 }
 
 // Run the scraper

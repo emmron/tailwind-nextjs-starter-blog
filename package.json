@@ -23,6 +23,8 @@
     "axios": "^1.9.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "cheerio": "^1.0.0",
+    "contentlayer": "^0.3.4",
+    "contentlayer2": "^0.5.8",
     "esbuild": "0.25.2",
     "framer-motion": "^12.10.5",
     "github-slugger": "^2.0.0",

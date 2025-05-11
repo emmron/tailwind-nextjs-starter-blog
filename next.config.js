@@ -1,5 +1,5 @@
 // @ts-check
-// const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require('next-contentlayer')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -63,7 +63,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
  * @type {import('next').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withBundleAnalyzer]
+  const plugins = [withBundleAnalyzer, withContentlayer]
   return plugins.reduce((acc, next) => next(acc), {
     output,
     basePath,
