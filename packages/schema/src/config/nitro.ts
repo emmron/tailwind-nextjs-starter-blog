@@ -37,7 +37,7 @@ export default defineResolvers({
     routeRules: {
       $resolve: async (val, get) => {
         return {
-          ...(await get('routeRules')),
+          ...await get('routeRules'),
           ...(val && typeof val === 'object' ? val : {}),
         }
       },
